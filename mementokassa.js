@@ -1,7 +1,7 @@
 
 // 0. check trigger phase - create / update
 var orderID = entry().field("orderID");
-message(foundOrders.length);
+//message(foundOrders.length);
 if ( orderID == 0 ) {
 
 	message('create');

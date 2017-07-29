@@ -1,1 +1,1 @@
-message('hello git');
+message('hello git, really?');

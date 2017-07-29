@@ -3,12 +3,12 @@
 var orderID = entry().field("orderID");
 var foundOrders = lib().find('"'+orderID+'"');
 message(foundOrders.length);
-if ( foundOrders.length == 0 ) {
+// if ( foundOrders.length == 0 ) {
 
-	message('create');
+// 	message('create');
   
-else {
+// else {
   
-  message('update');
+//   message('update');
   
-}
+// }

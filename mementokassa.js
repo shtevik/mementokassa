@@ -31,9 +31,6 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 
 
-
-
-
 // 0. check trigger phase - create / update
 var orderID = entry().field("orderID");
 
@@ -78,7 +75,7 @@ if ( orderID == 0 ) {  // 1. create
 						prevGuestStamps = prevGuestStamps - ( prevAddStamps + prevMinusStamps );
 						prevGuest.set("Кол-во штампов", prevGuestStamps);
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
-						message(prevGuestStamps+"шт.");
+						message("delete: "+prevGuest.field("Имя"));
 					}
 				} 	
 				outGuestStatus = '';
@@ -113,12 +110,12 @@ if ( orderID == 0 ) {  // 1. create
 } // 0.
 
 
-
+message(guest);
 
 // 1.2. check if guest is set
 if ( typeof guest !== "undefined" && guest !== null ) { 
 	
-	message(guest);
+	
 	
 	// 1.2.2. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
@@ -167,8 +164,8 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 
 
-	message(outGuestStatus);
-	message(guestID);
+	//message(outGuestStatus);
+	//message(guestID);
 
 
 entry().set("guestID", guestID);

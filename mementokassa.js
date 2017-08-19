@@ -65,7 +65,7 @@ if ( orderID == 0 ) {  // 1. create
 		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
 		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
 
-		message (prevGuestID);
+		
 		
 		/// 2.1.3. if guest was changed, deleted or set new
 		if ( prevGuestID !== guestID ) {
@@ -78,10 +78,11 @@ if ( orderID == 0 ) {  // 1. create
 				// get guest entity (from prev order entry)
 				
 				
-				var foundGuests = libByName("Гости").find('"'+prevGuestID+'"');
+				var foundGuests = libByName("Гости").find(prevGuestID);
 				if ( foundGuests.length > 0 ) { 
 					
 				var prevGuest = foundGuests[0];
+					message (prevGuest);
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {
 						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов"));

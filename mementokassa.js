@@ -111,7 +111,7 @@ if ( orderID == 0 ) {  // 1. create
 			
 		/// 2.1.4. if only stamps field was changed
 
-		else if ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) {
+		else if ( guestID !== 0 && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) ) {
 
 			message("order stamps were changed ");
 
@@ -162,6 +162,20 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 		}
 
 	}
+	
+	
+	// 1.2.4. guest status
+
+	entry().set("guestID", guestID);
+
+	guest.set("Кол-во штампов", outGuestStamps); 
+
+
+
+	guest.set("Статус", outGuestStatus);
+
+	entry().set( "guestStatus", outOrderGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
+
 
 
 }
@@ -170,16 +184,5 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 
 
-// 1.2.4. guest status
-
-entry().set("guestID", guestID);
-
-guest.set("Кол-во штампов", outGuestStamps); 
-
-
-
-guest.set("Статус", outGuestStatus);
-
-entry().set( "guestStatus", outOrderGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
 
 

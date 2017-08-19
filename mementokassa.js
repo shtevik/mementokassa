@@ -70,21 +70,20 @@ if ( orderID == 0 ) {  // 1. create
 			if ( prevGuestID !== 0 ) {
 				
 				message("guest was changed - or deleted");
-				// get guest entity (from prev order entry)
-				
 				
 				var prevGuest = libByName("Гости").findByKey(prevGuestID);
-				message(prevGuest);
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {
 						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов"));
 						prevGuestStamps = prevGuestStamps - ( prevAddStamps + prevMinusStamps );
 						prevGuest.set("Кол-во штампов", prevGuestStamps);
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
+						message(prevGuestStamps+"шт.");
 					}
-				} 
-				
+				} 	
 				outGuestStatus = '';
+				guestID = 0;
+				guest = null;
 			}
 
 

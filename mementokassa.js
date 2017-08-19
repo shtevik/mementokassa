@@ -75,16 +75,14 @@ if ( orderID == 0 ) {  // 1. create
 						prevGuestStamps = prevGuestStamps - ( prevAddStamps + prevMinusStamps );
 						prevGuest.set("Кол-во штампов", prevGuestStamps);
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
-						message("delete: "+prevGuest.field("Имя"));
 					}
 				} 	
-				outGuestStatus = '';
-				guestID = 0;
-				guest = null;
-				message(guestID);
+				outGuestStatus = '';	
+				guestID = 0;	guest = null;
 			}
 
 
+			
 			// 2.1.3.2. new guest was set to order
  			if ( guestID !== 0 ) {
 
@@ -100,8 +98,8 @@ if ( orderID == 0 ) {  // 1. create
 		else if ( guestID !== 0 && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) ) {
 
 			message("order stamps were changed ");
-
-			outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
+			outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );
+			// + ( addStamps + minusStamps )
 		}
 
 
@@ -111,12 +109,10 @@ if ( orderID == 0 ) {  // 1. create
 } // 0.
 
 
-message(guest);
-
 // 1.2. check if guest is set
 if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) { 
 	
-	
+	// outGuestStamps = guestStamps+addStamps+minusStamps;
 	
 	// 1.2.2. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
@@ -144,7 +140,7 @@ if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) {
 
 		// 1.2.3.2.
 		else {
-			outGuestStamps = guestStamps+addStamps+minusStamps;
+			outGuestStamps = guestStamps + ( addStamps + minusStamps );
 			outGuestStatus = outGuestStamps+'шт.';
 			//outOrderGuestStatus = outGuestStamps+'шт.';
 		}

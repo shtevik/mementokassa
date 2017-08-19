@@ -122,6 +122,8 @@ if ( orderID == 0 ) {  // 1. create
 // 1.2. check if guest is set
 if ( typeof guest !== "undefined" && guest !== null ) { 
 	
+	message(guest);
+	
 	// 1.2.2. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
 
@@ -168,8 +170,9 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 }
 
 
-	message(guestID);
+
 	message(outGuestStatus);
+	message(guestID);
 
 
 entry().set("guestID", guestID);

@@ -75,10 +75,11 @@ if ( orderID == 0 ) {  // 1. create
 				
 				message("guest was changed - or deleted");
 				// get guest entity (from prev order entry)
+				message (prevGuestID);
 				
 				var foundGuests = libByName("Гости").find('"'+prevGuestID+'"');
 				if ( foundGuests.length > 0 ) { 
-					message ("guest was found");
+					
 				var prevGuest = foundGuests[0];
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {

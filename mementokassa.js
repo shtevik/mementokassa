@@ -14,7 +14,7 @@ var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;
 var outGuestStatus = '';
-//var outOrderGuestStatus = '';
+var outOrderGuestStatus = '';
 
  
 
@@ -173,8 +173,11 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 
 	guest.set("Статус", outGuestStatus);
-
-	entry().set( "guestStatus", outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
+	
+	
+	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним");
+	
+	entry().set( "guestStatus", outGuestStatus );
 
 
 

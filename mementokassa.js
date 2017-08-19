@@ -81,13 +81,14 @@ if ( orderID == 0 ) {  // 1. create
 				outGuestStatus = '';
 				guestID = 0;
 				guest = null;
+				message(guestID);
 			}
 
 
 			// 2.1.3.2. new guest was set to order
- 			if ( GuestID !== 0 ) {
+ 			if ( guestID !== 0 ) {
 
- 				// message("new guest was set to order");
+ 				message("new guest was set to order");
 				// calculations are done in 1st step
  			} 
 
@@ -113,7 +114,7 @@ if ( orderID == 0 ) {  // 1. create
 message(guest);
 
 // 1.2. check if guest is set
-if ( typeof guest !== "undefined" && guest !== null ) { 
+if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) { 
 	
 	
 	

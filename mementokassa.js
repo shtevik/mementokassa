@@ -73,7 +73,8 @@ if ( orderID == 0 ) {  // 1. create
 				// get guest entity (from prev order entry)
 				
 				
-				var prevGuest = libByName("Гости").findByKey(prevGuestID);
+				var prevGuest = libByName("Гости").findByKey('"'+prevGuestID+'"');
+				message(prevGuest);
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {
 						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов"));

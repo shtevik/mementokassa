@@ -80,8 +80,10 @@ if ( orderID == 0 ) {  // 1. create
 				if ( foundGuests.length > 0 ) { 
 				var prevGuest = foundGuests[0];
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
+					message ("guest was found");
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {
-						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов")) - ( prevAddStamps + prevMinusStamps );
+						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов"));
+						prevGuestStamps = prevGuestStamps - ( prevAddStamps + prevMinusStamps );
 						prevGuest.set("Кол-во штампов", prevGuestStamps);
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
 					}

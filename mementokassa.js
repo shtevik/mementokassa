@@ -122,8 +122,6 @@ if ( orderID == 0 ) {  // 1. create
 // 1.2. check if guest is set
 if ( typeof guest !== "undefined" && guest !== null ) { 
 	
-	message(guestID);
-
 	// 1.2.2. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
 
@@ -168,6 +166,11 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним");
 
 }
+
+
+	message(guestID);
+	message(outGuestStatus);
+
 
 entry().set("guestID", guestID);
 

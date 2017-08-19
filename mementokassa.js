@@ -14,7 +14,7 @@ var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;
 var outGuestStatus = '';
-var outOrderGuestStatus = '';
+//var outOrderGuestStatus = '';
 
  
 
@@ -95,7 +95,7 @@ if ( orderID == 0 ) {  // 1. create
 					}
 				} } 
 				
-				outOrderGuestStatus = '';
+				outGuestStatus = '';
 			}
 
 
@@ -137,7 +137,7 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 		if ( orderDiscount == 0 ) 
 			entry().set("Ручная скидка", guestDiscount);
 
-		outOrderGuestStatus += guestDiscount+'% '; // set orderGuestStatus if guest was changed 
+		outGuestStatus += guestDiscount+'% '; // set orderGuestStatus if guest was changed 
 
 		// 1.2.2.2. protect from stamps adding
 		if ( addStamps !== 0 || minusStamps !== 0 ) {
@@ -158,7 +158,7 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 		else {
 			outGuestStamps = guestStamps+addStamps+minusStamps;
 			outGuestStatus = outGuestStamps+'шт.';
-			outOrderGuestStatus = outGuestStamps+'шт.';
+			//outOrderGuestStatus = outGuestStamps+'шт.';
 		}
 
 	}
@@ -174,7 +174,7 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 	guest.set("Статус", outGuestStatus);
 
-	entry().set( "guestStatus", outOrderGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
+	entry().set( "guestStatus", outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
 
 
 

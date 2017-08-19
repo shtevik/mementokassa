@@ -78,9 +78,9 @@ if ( orderID == 0 ) {  // 1. create
 				
 				var foundGuests = libByName("Гости").find('"'+prevGuestID+'"');
 				if ( foundGuests.length > 0 ) { 
+					message ("guest was found");
 				var prevGuest = foundGuests[0];
 				if ( typeof prevGuest !== "undefined" && prevGuest !== null ) { 
-					message ("guest was found");
 					if ( prevAddStamps !== 0 || prevMinusStamps !== 0 ) {
 						var prevGuestStamps = Number(prevGuest.field("Кол-во штампов"));
 						prevGuestStamps = prevGuestStamps - ( prevAddStamps + prevMinusStamps );

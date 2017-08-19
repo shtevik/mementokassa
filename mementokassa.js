@@ -46,7 +46,7 @@ if ( orderID == 0 ) {  // 1. create
 
   
 } else {  // 2. update phase  ( orderID !== 0 )
-  	//message('update phase');
+  	message('update phase');
 	
 	
 	// 2.1. get data from saved entry 

@@ -39,19 +39,11 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 
 
-
-
-
-
-
-
-
-
 // 0. check trigger phase - create / update
 var orderID = entry().field("orderID");
 
 if ( orderID == 0 ) {  // 1. create
-	//message('create phase');
+	message('create phase');
 	
 	// 1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
@@ -129,6 +121,8 @@ if ( orderID == 0 ) {  // 1. create
 
 // 1.2. check if guest is set
 if ( typeof guest !== "undefined" && guest !== null ) { 
+	
+	message(guestID);
 
 	// 1.2.2. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {

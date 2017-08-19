@@ -157,25 +157,21 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 	}
 	
+
 	
 	// 1.2.4. guest status
-
-	entry().set("guestID", guestID);
-
+	
 	guest.set("Кол-во штампов", outGuestStamps); 
 
-
-
 	guest.set("Статус", outGuestStatus);
-	
-	
+
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним");
-	
-	entry().set( "guestStatus", outGuestStatus );
-
-
 
 }
+
+entry().set("guestID", guestID);
+
+entry().set( "guestStatus", outGuestStatus );
 
 
 

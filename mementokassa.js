@@ -85,7 +85,7 @@ if ( orderID == 0 ) {  // 1. create
 
 
 			// 2.1.3.2. new guest was set to order
- 			if ( newGuestID !== 0 ) {
+ 			if ( GuestID !== 0 ) {
 
  				// message("new guest was set to order");
 				// calculations are done in 1st step

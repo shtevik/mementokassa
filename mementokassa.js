@@ -98,8 +98,8 @@ if ( orderID == 0 ) {  // 1. create
 		else if ( guestID !== 0 && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) ) {
 
 			message("order stamps were changed ");
-			outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );
-			// + ( addStamps + minusStamps )
+			//outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );
+			outGuestStamps = guestStamps + ( addStamps + minusStamps ) - ( prevAddStamps + prevMinusStamps );
 		}
 
 

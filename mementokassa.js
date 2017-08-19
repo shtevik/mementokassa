@@ -14,6 +14,9 @@ var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;
 var outGuestStatus = '';
+var outOrderGuestStatus = '';
+
+ 
 
 
 if ( typeof guest !== "undefined" && guest !== null ) { 
@@ -24,50 +27,13 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 }
 
-entry().set("guestID", guestID);
 
 
 
 
 
 
-// 1.2. check if guest is set
-if ( typeof guest !== "undefined" && guest !== null ) { 
 
-	// 1.2.2. if guest uses own discount sys
-	if (guestDiscount !== 0 ) {
-
-		// 1.2.2.1. use guestDisc if no discount per order
-		if ( orderDiscount == 0 ) 
-			entry().set("Ручная скидка", guestDiscount);
-
-		//outGuestStatus += guestDiscount+'% '; // there is a trigger in guest library for this over-work here
-
-		// 1.2.2.2. protect from stamps adding
-		if ( addStamps !== 0 || minusStamps !== 0 ) {
-			message("Аа, нет! Нельзя начислять штампы \n\nгостю с персональной скидкой");
-			cancel();
-		}
-
-	// 1.2.3 if stamp system
-	} else {
-
-		// 1.2.3.1. if stamps and orderDiscount are set at the same time
-		if ( orderDiscount !== 0 && ( addStamps !== 0 || minusStamps !== 0 ) ) {
-			message("Аа, нет! Нельзя одновременно \nначислить штампы и пробить скидку");
-			cancel(); 
-		}
-
-		// 1.2.3.2.
-		else {
-			outGuestStamps = guestStamps+addStamps+minusStamps;
-			outGuestStatus = outGuestStamps+'шт.';
-		}
-
-	}
-
-
-}
 
 
 
@@ -128,6 +94,8 @@ if ( orderID == 0 ) {  // 1. create
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
 					}
 				} } 
+				
+				outOrderGuestStatus = '';
 			}
 
 
@@ -159,12 +127,59 @@ if ( orderID == 0 ) {  // 1. create
 
 
 
+// 1.2. check if guest is set
+if ( typeof guest !== "undefined" && guest !== null ) { 
+
+	// 1.2.2. if guest uses own discount sys
+	if (guestDiscount !== 0 ) {
+
+		// 1.2.2.1. use guestDisc if no discount per order
+		if ( orderDiscount == 0 ) 
+			entry().set("Ручная скидка", guestDiscount);
+
+		outOrderGuestStatus += guestDiscount+'% '; // set orderGuestStatus if guest was changed 
+
+		// 1.2.2.2. protect from stamps adding
+		if ( addStamps !== 0 || minusStamps !== 0 ) {
+			message("Аа, нет! Нельзя начислять штампы \n\nгостю с персональной скидкой");
+			cancel();
+		}
+
+	// 1.2.3 if stamp system
+	} else {
+
+		// 1.2.3.1. if stamps and orderDiscount are set at the same time
+		if ( orderDiscount !== 0 && ( addStamps !== 0 || minusStamps !== 0 ) ) {
+			message("Аа, нет! Нельзя одновременно \nначислить штампы и пробить скидку");
+			cancel(); 
+		}
+
+		// 1.2.3.2.
+		else {
+			outGuestStamps = guestStamps+addStamps+minusStamps;
+			outGuestStatus = outGuestStamps+'шт.';
+			outOrderGuestStatus = outGuestStamps+'шт.';
+		}
+
+	}
+
+
+}
+
+
+
+
+
 // 1.2.4. guest status
+
+entry().set("guestID", guestID);
 
 guest.set("Кол-во штампов", outGuestStamps); 
 
+
+
 guest.set("Статус", outGuestStatus);
 
-entry().set( "guestStatus", outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
+entry().set( "guestStatus", outOrderGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним") );
 
 

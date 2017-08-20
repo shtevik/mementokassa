@@ -1,7 +1,7 @@
 
 
 
-// 0.0. gather general data
+// 0. gather general data
 
 var guest = entry().field('Гость')[0];
 var guestID = 0;
@@ -23,44 +23,46 @@ if ( typeof guest !== "undefined" && guest !== null ) {
 
 var outGuestStamps = guestStamps;
 var outGuestStatus = '';
-var outOrderGuestStatus = '';
 
 
 
 
 
-// 0. check trigger phase - create / update
+// 1. check trigger phase - create / update
 var orderID = entry().field("orderID");
 
-if ( orderID == 0 ) {  // 1. create
-	message('create phase');
+// 1.1. create phase
+if ( orderID == 0 ) { 
 	
-	// 1.1. set orderID
+	//message('create phase');
+	
+	// 1.1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
 
 
-  
-} else {  // 2. update phase  ( orderID !== 0 )
-  	message('update phase');
+ 
+// 1.2. update phase
+} else {  // 2.  ( orderID !== 0 )
+  	//message('update phase');
 	
 	
-	// 2.1. get data from saved entry 
+	// 1.2.1. get data from saved entry 
 	var foundOrders = lib().find('"'+orderID+'"');
 	if ( foundOrders.length > 0 ) {
 	var orderSavedData = foundOrders[0];
 	if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
 	
-		// 2.1.1. gather data from prev entry
+		// 1.2.1.1. gather data from prev entry
 		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
 		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
 		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
 		
 		
-		/// 2.1.3. if guest was changed, deleted or set new
+		/// 1.2.1.2. if guest was changed, deleted or set new
 		if ( prevGuestID !== guestID ) {
 			
 
-			// 2.1.3.1. guest was deleted or changed to new one
+			// 1.2.1.2.1. guest was deleted or changed to new one
 			if ( prevGuestID !== 0 ) {
 				
 				message("guest was changed - or deleted");
@@ -80,7 +82,7 @@ if ( orderID == 0 ) {  // 1. create
 
 
 			
-			// 2.1.3.2. new guest was set to order
+			// 1.2.1.2.2. new guest was set to order
  			if ( guestID !== 0 ) {
 
  				message("new guest was set to order");
@@ -90,69 +92,53 @@ if ( orderID == 0 ) {  // 1. create
 		}
 			
 			
-		/// 2.1.4. if only stamps field was changed
+		/// 1.2.1.3. if only stamps field was changed
 
 		else if ( guestID !== 0 && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) ) {
 
 			message("order stamps were changed ");
 			outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );
-			//outGuestStamps = guestStamps + ( addStamps + minusStamps ) - ( prevAddStamps + prevMinusStamps );
 		}
 
 
-	} } // 2.1.
+	} } // 1.2.1
 
 
-} // 0.
+} // 1.
 
 
-// 1.2. check if guest is set
+// 2. check if guest is set
 if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) { 
-	
-	// outGuestStamps = guestStamps+addStamps+minusStamps;
-	
-	// 1.2.2. if guest uses own discount sys
+		
+	// 2.1. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
 
-		// 1.2.2.1. use guestDisc if no discount per order
+		// 2.1.1. use guestDisc if no discount per order
 		if ( orderDiscount == 0 ) 
 			entry().set("Ручная скидка", guestDiscount);
 
-		outGuestStatus += guestDiscount+'% '; // set orderGuestStatus if guest was changed 
+		outGuestStatus = guestDiscount+'% '; // set orderGuestStatus if guest was changed 
 
-		// 1.2.2.2. protect from stamps adding
+		// 2.1.2. protect from stamps adding
 		if ( addStamps !== 0 || minusStamps !== 0 ) {
 			message("Аа, нет! Нельзя начислять штампы \n\nгостю с персональной скидкой");
 			cancel();
 		}
 
-	// 1.2.3 if stamp system
+	// 2.2. if stamp system
 	} else {
 
-// 		// 1.2.3.1. if stamps and orderDiscount are set at the same time
-// 		if ( orderDiscount !== 0 && ( addStamps !== 0 || minusStamps !== 0 ) ) {
-// 			message("Аа, нет! Нельзя одновременно \nначислить штампы и пробить скидку");
-// 			cancel(); 
-// 		}
-// 		else {
-// 			outGuestStamps = guestStamps + ( addStamps + minusStamps );
-// 			outGuestStatus = outGuestStamps+'шт.';
-// 			//outOrderGuestStatus = outGuestStamps+'шт.';
-// 		}
 
-		// 1.2.3.2.
+		// 2.2.1.
 		if ( addStamps !== 0 || minusStamps !== 0 ) { 
 			
-			// 1.2.3.1. if stamps and orderDiscount are set at the same time
 			if ( orderDiscount !== 0  ) {
 				message("Аа, нет! Нельзя одновременно \nначислить штампы и пробить скидку");
 				cancel(); 
 			}
 			
 			outGuestStamps = outGuestStamps + ( addStamps + minusStamps );
-			outGuestStatus = outGuestStamps+'шт.';
-			//outOrderGuestStatus = outGuestStamps+'шт.';			
-			
+			outGuestStatus = outGuestStamps+'шт.';			
 		}
 
 
@@ -160,7 +146,7 @@ if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) {
 	
 
 	
-	// 1.2.4. guest status
+	// 2.3. guest status
 	
 	if ( outGuestStamps !== guestStamps ) guest.set("Кол-во штампов", outGuestStamps); 
 
@@ -172,9 +158,9 @@ if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) {
 
 
 
-	//message(outGuestStatus);
-	//message(guestID);
-
+// 3.
+//message(outGuestStatus);
+//message(guestID);
 
 entry().set("guestID", guestID);
 

@@ -94,7 +94,10 @@ if ( orderID == 0 ) {
 			
 		/// 1.2.1.3. if only stamps field was changed
 
-		else if ( guestID !== 0 && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) ) {
+		else if ( guestID !== 0  ) {
+			// deleted: && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) 
+			// if there'ra changes only in menu, prevent repeat of the same stamps calc:
+			// mirrow calc, that is done below in the doc
 
 			message("order stamps were changed ");
 			outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );

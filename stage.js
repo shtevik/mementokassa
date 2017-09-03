@@ -252,7 +252,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	
 	if ( outGuestStamps !== guestStamps ) guest.set("Кол-во штампов", outGuestStamps); 
 
-	guest.set("Статус", outGuestStatus);
+	outGuestEntry.set("Статус", outGuestStatus);
 
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним");
 

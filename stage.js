@@ -66,7 +66,7 @@ var outGuestStatus = '';
 
 // 0.1. 
 
-var guestID = Number(entry().field("Гость. Телефон").replace(/[^0-9]/g,""));
+var guestID = Number(entry().field("(guestID").replace(/[^0-9]/g,""));
 var guestEntry = entry().field('Гость')[0];
 var foundGuest =  libByName("Гости").findByKey(guestID);
 var outGuestID = 0;
@@ -164,7 +164,7 @@ if ( orderID == 0 ) {
 					outGuestID = guestID;
 					outGuestEntry = foundGuest;
 				} else if ( prevGuestEntry !== guestEntry )  {
-					outGuestID = guestEntry.field('guestID');
+					outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,"")); 
 					outGuestEntry = guestEntry;
 				}
 				

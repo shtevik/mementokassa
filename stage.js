@@ -126,28 +126,22 @@ if ( orderID == 0 ) {
 } else {  // 2.  ( orderID !== 0 )
   	message('update phase');
 	
-	message ( guestEntryID );
-	message (guestID);
-	message ( guestID !== guestEntryID );
-	
-	/// 1.2.1.2. if guest was changed 
-	if ( guestEntryID !== guestID  /* && ( guestEntryID !== null || foundGuest !== null ) */ ) {
-		// fields differs, and one of them may be zero
-	
 		
-		// 1.2.1. get data from saved entry 
-		var foundOrders = lib().find('"'+orderID+'"');
-		if ( foundOrders.length > 0 ) {
-		var orderSavedData = foundOrders[0];
-		if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
+	// 1.2.1. get data from saved entry 
+	var foundOrders = lib().find('"'+orderID+'"');
+	if ( foundOrders.length > 0 ) {
+	var orderSavedData = foundOrders[0];
+	if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
 
-			// 1.2.1.1. gather data from saved entry
-			var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
-			var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
-			var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
-	
-			/// 1.2.1.2. if guest was changed, deleted or set new
-			// if ( prevGuestID !== newGuestID ) {
+		// 1.2.1.1. gather data from saved entry
+		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
+		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
+		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));		
+
+		/// 1.2.1.2. if guest was changed 
+		// if ( prevGuestID !== newGuestID ) {
+		if ( guestEntryID !== guestID  /* && ( guestEntryID !== null || foundGuest !== null ) */ ) {
+			// fields differs, and one of them may be zero
 			
 			// 1.2.1.2.1. guest was deleted or changed to new one
 			if ( prevGuestID !== 0 ) {
@@ -186,21 +180,21 @@ if ( orderID == 0 ) {
 				// calculations are done in last step
 			} 
 
-			//}
+		}
 			
-		} } // 1.2.1
 
-	}
+		/// 1.2.1.3. if only stamps field was changed
 
-	/// 1.2.1.3. if only stamps field was changed
+		else if ( guestID !== 0 || guestEntryID !== 0  ) {
 
-	else if ( guestID !== 0 || guestEntry !== null  ) {
+			message("order's stamps were changed ");
+			outGuestID = guestID;
+			outGuestEntry = guestEntry;
+			outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
+		}
+		
+	} } // 1.2.1
 
-		message("order's stamps were changed ");
-		outGuestID = guestID;
-		outGuestEntry = guestEntry;
-		outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
-	}
 
 
 

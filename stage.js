@@ -74,8 +74,8 @@ var outGuestEntry = null;
 
 
 
-message(guestEntry);
-message(foundGuest);
+//message(guestEntry);
+//message(foundGuest);
 
 
 
@@ -255,8 +255,9 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 
 // 3.
-//message(outGuestStatus);
-//message(guestID);
+
+message(outGuestEntry);
+message(outGuestID);
 
 entry().set("guestID", outGuestID);
 entry().set("Гость", outGuestEntry);

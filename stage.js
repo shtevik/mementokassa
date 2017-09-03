@@ -207,8 +207,8 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	message('guest stamp work');
 
 
-	guestDiscount = Number(guestEntry.field("ПерсонСкидка"));
-	guestStamps = Number(guestEntry.field("Кол-во штампов"));
+	guestDiscount = Number(outGuestEntry.field("ПерсонСкидка"));
+	guestStamps = Number(outGuestEntry.field("Кол-во штампов"));
 
 		
 	// 2.1. if guest uses own discount sys

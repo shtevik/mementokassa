@@ -122,7 +122,8 @@ if ( orderID == 0 ) {
 } else {  // 2.  ( orderID !== 0 )
   	message('update phase');
 	
-	message ( guestEntry !== foundGuest );
+	message ( guestEntry );
+	message (foundGuest);
 	
 	/// 1.2.1.2. if guest was changed 
 	if ( guestEntry !== foundGuest  && ( guestEntry !== null || foundGuest !== null ) ) {

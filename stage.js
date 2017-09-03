@@ -197,18 +197,18 @@ if ( orderID == 0 ) {
 
 } // 1.
 
-message('pre guest stamp work');
-message(outGuestEntry);
-message(outGuestID);
+
 
 // 2. check if guest is set
 if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
 	
-	message('guest stamp work');
+	
 
 
 	guestDiscount = Number(outGuestEntry.field("ПерсонСкидка"));
 	guestStamps = Number(outGuestEntry.field("Кол-во штампов"));
+	
+	message('guestStamps is get');
 
 		
 	// 2.1. if guest uses own discount sys

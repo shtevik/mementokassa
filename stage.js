@@ -120,11 +120,14 @@ if ( orderID == 0 ) {
  
 // 1.2. update phase
 } else {  // 2.  ( orderID !== 0 )
-  	//message('update phase');
+  	message('update phase');
+	
+	message ( guestEntry !== foundGuest );
 	
 	/// 1.2.1.2. if guest was changed 
 	if ( guestEntry !== foundGuest  && ( guestEntry !== null || foundGuest !== null ) ) {
 		// fields differs, and one of them may be zero
+	
 		
 		// 1.2.1. get data from saved entry 
 		var foundOrders = lib().find('"'+orderID+'"');

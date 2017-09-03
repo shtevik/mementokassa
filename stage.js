@@ -16,8 +16,6 @@ situations:
 result work with both fields
 
 
-
-
 guestID 
 guestEntry
 

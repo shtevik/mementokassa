@@ -70,7 +70,8 @@ var guestEntry = entry().field('Гость')[0];
 var foundGuest =  libByName("Гости").findByKey(guestID);
 //message ( guestEntry == null);
 var guestEntryID = 0; 
-if ( typof guestEntry !== "undefined" ) guestEntryID = Number(guestEntry.field("guestID").replace(/[^0-9]/g,""));
+if ( typeof guestEntry !== "undefined" ) guestEntryID = Number(guestEntry.field("guestID").replace(/[^0-9]/g,""));
+message (guestEntryID);
 var outGuestID = 0;
 var outGuestEntry = null;
 

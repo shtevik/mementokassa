@@ -200,6 +200,8 @@ if ( orderID == 0 ) {
 
 // 2. check if guest is set
 if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
+	
+	message('guest stamp work');
 
 
 	guestDiscount = Number(guest.field("ПерсонСкидка"));

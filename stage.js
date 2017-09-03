@@ -67,6 +67,7 @@ var outGuestStatus = '';
 var guestID = Number(entry().field("guestID").replace(/[^0-9]/g,""));
 var guestEntry = entry().field('Гость')[0];
 var foundGuest =  libByName("Гости").findByKey(guestID);
+var guestEntryID = Number(guestEntry.field("guestID").replace(/[^0-9]/g,""));
 var outGuestID = 0;
 var outGuestEntry = null;
 
@@ -97,8 +98,7 @@ var orderID = entry().field("orderID");
 
 // 1.1. create phase
 if ( orderID == 0 ) { 
-	
-	
+	message('create phase');
 	
 	// 1.1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
@@ -115,19 +115,19 @@ if ( orderID == 0 ) {
 
 	}
 	
-	message('create phase');
+	
 
  
 // 1.2. update phase
 } else {  // 2.  ( orderID !== 0 )
   	message('update phase');
 	
-	message ( guestEntry.field('Имя') );
-	message (foundGuest.field('Имя'));
-	message ( guestEntry !== foundGuest );
+	message ( guestEntryID );
+	message (guestID);
+	message ( guestID !== guestEntryID );
 	
 	/// 1.2.1.2. if guest was changed 
-	if ( guestEntry !== foundGuest  && ( guestEntry !== null || foundGuest !== null ) ) {
+	if ( guestEntryID !== guestID  /* && ( guestEntryID !== null || foundGuest !== null ) */ ) {
 		// fields differs, and one of them may be zero
 	
 		
@@ -166,7 +166,7 @@ if ( orderID == 0 ) {
 
 
 			// 1.2.1.2.2. new guest was set to order  -- fields are equal
-			if ( guestID !== 0 || guestEntry !== null ) { 
+			if ( guestID !== 0 || guestEntryID !== 0 ) { 
 
 				message("new guest was set to order");
 				

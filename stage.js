@@ -67,12 +67,13 @@ var outGuestStatus = '';
 // 0.1. 
 
 var guestID = Number(entry().field("guestID").replace(/[^0-9]/g,""));
+message(guestID);
 var guestEntry = entry().field('Гость')[0];
 var foundGuest =  libByName("Гости").findByKey(guestID);
 var outGuestID = 0;
 var outGuestEntry = null;
 
-message(guestID);
+
 
 
 if ( guestID == 0 ) {

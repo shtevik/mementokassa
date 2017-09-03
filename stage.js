@@ -72,6 +72,8 @@ var foundGuest =  libByName("Гости").findByKey(guestID);
 var outGuestID = 0;
 var outGuestEntry = null;
 
+message(guestID);
+
 
 if ( guestID == 0 ) {
 	// continue

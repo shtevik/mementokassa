@@ -124,6 +124,7 @@ if ( orderID == 0 ) {
 	
 	message ( guestEntry.field('Имя') );
 	message (foundGuest.field('Имя'));
+	message ( guestEntry !== foundGuest );
 	
 	/// 1.2.1.2. if guest was changed 
 	if ( guestEntry !== foundGuest  && ( guestEntry !== null || foundGuest !== null ) ) {

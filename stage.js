@@ -73,7 +73,7 @@ var outGuestID = 0;
 var outGuestEntry = null;
 
 message(guestEntry);
-message(founGuest);
+message(foundGuest);
 
 
 

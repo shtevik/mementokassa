@@ -197,6 +197,9 @@ if ( orderID == 0 ) {
 
 } // 1.
 
+message('pre guest stamp work');
+message(outGuestEntry);
+message(outGuestID);
 
 // 2. check if guest is set
 if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
@@ -258,6 +261,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 // 3.
 
+message('after guest stamp work');
 message(outGuestEntry);
 message(outGuestID);
 

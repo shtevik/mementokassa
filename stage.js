@@ -98,7 +98,7 @@ var orderID = entry().field("orderID");
 // 1.1. create phase
 if ( orderID == 0 ) { 
 	
-	//message('create phase');
+	
 	
 	// 1.1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
@@ -114,6 +114,8 @@ if ( orderID == 0 ) {
 		outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,""));
 
 	}
+	
+	message('create phase');
 
  
 // 1.2. update phase

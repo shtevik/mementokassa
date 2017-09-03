@@ -1,3 +1,4 @@
+/* 
 tests:
 - add guest discount / stamps
 - delete guest
@@ -22,7 +23,8 @@ guestEntry
 
 
 
-if guestID !== 0 && guestEntry !== 0
+if guestID == 0 && guestEntry == 0 || 
+guestID !== 0 && guestEntry !== 0 && guestID !== guestEntry
 
 on create
         if guestID not emty use it set guestEntry
@@ -44,54 +46,11 @@ common:
 
 
 
-
+*/
 
 
 
 // 0. gather general data
-
-
-var guestID = Number(entry().field("Гость. Телефон").replace(/[^0-9]/g,""));
-var guestEntry = null;
-var outGuestID = 0;
-var outGuest = null;
-
-
-if ( guestID && guestID !== '' && guestID !== 0 ) {
-
-	if ( guestID.toString().length !== 11 ) {
-		message("Неправильный формат номера. Правильный 79302227555. Либо, если без гостя, оставьте поле пустым (0)");
-		cancel();
-	}
-	
-	else if ( libByName("Гости").findByKey(guestID) == null ) {
-		message("Гость не найден! Попробуйте снова, поищите гостя в поле ниже или оставьте пустым (чтобы продолжить без гостя).");
-		cancel();
-	} 
-	
-	else {
-		guestEntry = libByName("Гости").findByKey(guestID);
-	
-	}
-		
-	
-	
-} else if ( typeof entry().field('Гость')[0] !== "undefined" && entry().field('Гость')[0] !== null ) {
-
-	guestEntry = entry().field('Гость')[0];
-	guestID = Number(guest.field("Телефон").replace(/[^0-9]/g,""));
-
-} else {
-
-	guestID = 0;
-
-}
-
-
-
-
-
-
 
 var guestStatus = '';
 var guestDiscount = 0;
@@ -102,6 +61,28 @@ var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;
 var outGuestStatus = '';
+
+
+
+// 0.1. 
+
+var guestID = Number(entry().field("Гость. Телефон").replace(/[^0-9]/g,""));
+var guestEntry = entry().field('Гость')[0];
+var foundGuest =  libByName("Гости").findByKey(guestID);
+var outGuestID = 0;
+var outGuestEntry = null;
+
+
+if ( guestID == 0 ) {
+	// continue
+} else if ( guestID.toString().length !== 11 ) {
+	message("Неправильный формат номера. Правильный 79302227555. Либо оставьте поле пустым /'0' (чтобы продолжить без баллов гостю)");
+	cancel();
+} else if ( foundGuest == null ) {
+	message("Гость не найден! Исправьте введенный номер, найдите гостя по-старинке (ч/з поле ниже) или оставьте пустым /'0' (чтобы продолжить без баллов гостю).");
+	cancel();
+} 
+
 
 
 
@@ -117,23 +98,28 @@ if ( orderID == 0 ) {
 	
 	// 1.1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
+	
+	if ( guestID && guestID !== '' && guestID !== 0 ) {
 
+		outGuestID = guestID;
+		outGuestEntry = foundGuest;
+		
+	} else if ( typeof guestEntry !== "undefined" && guestEntry !== null ) {
+
+		outGuestEntry = guestEntry;
+		outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,""));
+
+	}
 
  
 // 1.2. update phase
 } else {  // 2.  ( orderID !== 0 )
   	//message('update phase');
 	
-
-	// figue out newGuestID
-	if (prevGuestID !== guestID )  outGuestID = guestID;
-	else if ( prevGuestEntry !== guestEntry )  outGuestID = guestEntry.field('guestID');
-	
 	/// 1.2.1.2. if guest was changed 
-	if ( guestID !== guestEntry.field('guestID') ) {
-	
-
-
+	if ( guestEntry !== foundGuest  && ( guestEntry !== null || foundGuest !== null ) ) {
+		// fields differs, and one of them may be zero
+		
 		// 1.2.1. get data from saved entry 
 		var foundOrders = lib().find('"'+orderID+'"');
 		if ( foundOrders.length > 0 ) {
@@ -144,12 +130,10 @@ if ( orderID == 0 ) {
 			var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
 			var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
 			var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
-
-
+	
 			/// 1.2.1.2. if guest was changed, deleted or set new
 			// if ( prevGuestID !== newGuestID ) {
-
-
+			
 			// 1.2.1.2.1. guest was deleted or changed to new one
 			if ( prevGuestID !== 0 ) {
 
@@ -164,17 +148,27 @@ if ( orderID == 0 ) {
 						prevGuest.set("Статус", prevGuestStamps+"шт.");
 					}
 				} 	
-				outGuestStatus = '';	
-				guestID = 0;	guest = null;
+				//outGuestStatus = '';	
+				outGuestID = 0;	outGuestEntry = null;
 			}
 
 
 
-			// 1.2.1.2.2. new guest was set to order
-			if ( guestID !== 0 ) {
+			// 1.2.1.2.2. new guest was set to order  -- fields are equal
+			if ( guestID !== 0 || guestEntry !== null ) { 
 
 				message("new guest was set to order");
-				// calculations are done in 1st step
+				
+				// figue out outGuestID
+				if ( prevGuestID !== guestID )  {
+					outGuestID = guestID;
+					outGuestEntry = foundGuest;
+				} else if ( prevGuestEntry !== guestEntry )  {
+					outGuestID = guestEntry.field('guestID');
+					outGuestEntry = guestEntry;
+				}
+				
+				// calculations are done in last step
 			} 
 
 			//}
@@ -185,24 +179,21 @@ if ( orderID == 0 ) {
 
 	/// 1.2.1.3. if only stamps field was changed
 
-	else if ( guestID !== 0  ) {
-		// deleted: && ( prevAddStamps !== addStamps || prevMinusStamps !== minusStamps ) 
-		// if there'ra changes only in menu, prevent repeat of the same stamps calc:
-		// mirrow calc, that is done below in the doc
+	else if ( guestID !== 0 || guestEntry !== null  ) {
 
 		message("order's stamps were changed ");
-		outGuestStamps = outGuestStamps  - ( prevAddStamps + prevMinusStamps );
+		outGuestID = guestID;
+		outGuestEntry = guestEntry;
+		outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
 	}
 
-
-	
 
 
 } // 1.
 
 
 // 2. check if guest is set
-if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) { 
+if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
 
 
 	guestDiscount = Number(guest.field("ПерсонСкидка"));
@@ -261,7 +252,8 @@ if ( guestID !== 0 && typeof guest !== "undefined" && guest !== null ) {
 //message(outGuestStatus);
 //message(guestID);
 
-entry().set("guestID", guestID);
+entry().set("guestID", outGuestID);
+entry().set("Гость", outGuestEntry);
 
 entry().set( "guestStatus", outGuestStatus );
 

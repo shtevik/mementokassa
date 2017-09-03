@@ -245,17 +245,18 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 	}
 	
-	message(guestStamps);
+	
 
 	
 	// 2.3. guest status
 	
-	if ( outGuestStamps !== guestStamps ) guest.set("Кол-во штампов", outGuestStamps); 
+	if ( outGuestStamps !== guestStamps ) outGuestEntry.set("Кол-во штампов", outGuestStamps); 
 
 	outGuestEntry.set("Статус", outGuestStatus);
 
-	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ guest.field("Имя") +' '+ guest.field("Псевдоним");
+	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ outGuestEntry.field("Имя") +' '+ outGuestEntry.field("Псевдоним");
 
+	message(guestStamps);
 }
 
 

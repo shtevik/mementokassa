@@ -146,6 +146,7 @@ if ( orderID == 0 ) {
 		// if ( prevGuestID !== newGuestID ) {
 		if ( guestEntryID !== guestID  /* && ( guestEntryID !== null || foundGuest !== null ) */ ) {
 			// fields differs, and one of them may be zero
+		
 			
 			// 1.2.1.2.1. guest was deleted or changed to new one
 			if ( prevGuestID !== 0 ) {
@@ -164,11 +165,25 @@ if ( orderID == 0 ) {
 				//outGuestStatus = '';	
 				outGuestID = 0;	outGuestEntry = null;
 			}
-
-
+			
+			
+						
+			
+			// figure out that new guest was really set && it's not just unsetting one field of old guest
+			//if new guest - prev is zero and 
+				//if ( prevGuest == 0 ) && ( guestEntry !== 0 || guestID !== 0 )
+			//if one differs from all 3 others and not equal zero
+				//if ( ( guestENtryID == prevGuestID && guestID !== 0 /* && guestID !== guestEntryID */ ) ||
+				     // ( guestID == prevGuestID && guestEntryID !== 0 ) )
+			
+			
+			
+			
+			
+			
 
 			// 1.2.1.2.2. new guest was set to order  -- fields are equal
-			if ( guestID !== 0 || guestEntryID !== 0 ) { 
+			if ( prevGuestID == 0 && ( guestID !== 0 || guestEntryID !== 0 ) ) { 
 
 				message("new guest was set to order");
 				
@@ -183,6 +198,11 @@ if ( orderID == 0 ) {
 				
 				// calculations are done in last step
 			} 
+			
+			// if guest was deleted
+			if ( prevGuestID !== 0 && ( guestID == 0 || guestEntryID == 0 ) ) {
+				outGuestID = 0;	outGuestEntry = null;
+			}
 		}
 			
 
@@ -195,6 +215,9 @@ if ( orderID == 0 ) {
 			outGuestEntry = guestEntry;
 			outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
 		}
+		
+			
+
 		
 	} } // 1.2.1
 

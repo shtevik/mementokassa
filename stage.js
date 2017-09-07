@@ -188,10 +188,10 @@ if ( orderID == 0 ) {
 				message("new guest was set to order");
 				
 				// figue out outGuestID
-				if ( prevGuestID !== guestID )  {
+				if ( prevGuestID !== guestID && guestID !== 0 )  {
 					outGuestID = guestID;
 					outGuestEntry = foundGuest;
-				} else if ( prevGuestID !== guestEntryID )  {
+				} else if ( prevGuestID !== guestEntryID && guestEntryID !== 0 )  { 
 					outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,"")); 
 					outGuestEntry = guestEntry;
 				}

@@ -65,13 +65,13 @@ var outGuestStatus = '';
 // 0.1. 
 
 var guestID = Number(entry().field("guestID").replace(/[^0-9]/g,""));
-message ( guestID ) ;
+//message ( guestID ) ;
 var guestEntry = entry().field('Гость')[0];
 var foundGuest =  libByName("Гости").findByKey(guestID);
 //message ( guestEntry == null);
 var guestEntryID = 0; 
 if ( typeof guestEntry !== "undefined" ) guestEntryID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,""));
-message (guestEntryID);
+//message (guestEntryID);
 var outGuestID = 0;
 var outGuestEntry = null;
 
@@ -131,9 +131,12 @@ if ( orderID == 0 ) {
 	// 1.2.1. get data from saved entry 
 	var foundOrders = lib().find('"'+orderID+'"');
 	if ( foundOrders.length > 0 ) {
+		message ('prev data is found');
 	var orderSavedData = foundOrders[0];
 	if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
 
+		
+		
 		// 1.2.1.1. gather data from saved entry
 		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
 		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));

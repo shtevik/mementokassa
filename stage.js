@@ -126,8 +126,7 @@ if ( orderID == 0 ) {
 } else {  // 2.  ( orderID !== 0 )
   	message('update phase');
 	
-	message(guestEntryID);
-	message(guestID);
+	
 		
 	// 1.2.1. get data from saved entry 
 	var foundOrders = lib().find('"'+orderID+'"');
@@ -138,7 +137,10 @@ if ( orderID == 0 ) {
 		// 1.2.1.1. gather data from saved entry
 		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
 		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
-		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));		
+		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
+		
+		message(guestEntryID);
+		message(guestID);
 
 		/// 1.2.1.2. if guest was changed 
 		// if ( prevGuestID !== newGuestID ) {

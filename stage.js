@@ -54,7 +54,7 @@ var guestStatus = '';
 var guestDiscount = 0;
 var guestStamps = 0;
 var orderDiscount = Number(entry().field("Ручная скидка"));
-var addStamps = Number(entry().field("Добавить штампы"));
+//var addStamps = Number(entry().field("Добавить штампы"));
 var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;

@@ -86,8 +86,10 @@ if ( guestID == 0 ) {
 	// continue
 } else if ( guestID.toString().length !== 11 ) {
 	message("Неправильный формат номера. Правильный 79302227555. Либо оставьте поле пустым /'0' (чтобы продолжить без баллов гостю)");
+	message("Неправильный формат номера. Правильный 79302227555. Либо оставьте поле пустым /'0' (чтобы продолжить без баллов гостю)");
 	cancel();
 } else if ( foundGuest == null ) {
+	message("Гость не найден! Исправьте введенный номер, найдите гостя по-старинке (ч/з поле ниже) или оставьте пустым /'0' (чтобы продолжить без баллов гостю).");
 	message("Гость не найден! Исправьте введенный номер, найдите гостя по-старинке (ч/з поле ниже) или оставьте пустым /'0' (чтобы продолжить без баллов гостю).");
 	cancel();
 } 
@@ -129,21 +131,16 @@ if ( orderID == 0 ) {
 	
 		
 	// 1.2.1. get data from saved entry 
-	var foundOrders = lib().find('"'+orderID+'"');
+	var foundOrders = lib().find('"'+orderID+'"'); // if table is not index yet, mistake will be return
 	if ( foundOrders.length > 0 ) {
 		message ('prev data is found');
 	var orderSavedData = foundOrders[0];
 	if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
-
-		
 		
 		// 1.2.1.1. gather data from saved entry
 		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
 		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
 		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
-		
-		message(guestEntryID);
-		message(guestID);
 
 		/// 1.2.1.2. if guest was changed 
 		// if ( prevGuestID !== newGuestID ) {
@@ -186,7 +183,6 @@ if ( orderID == 0 ) {
 				
 				// calculations are done in last step
 			} 
-
 		}
 			
 
@@ -212,15 +208,9 @@ if ( orderID == 0 ) {
 // 2. check if guest is set
 if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
 	
-	
-
-
 	guestDiscount = Number(outGuestEntry.field("ПерсонСкидка"));
 	guestStamps = Number(outGuestEntry.field("Кол-во штампов"));
-	
-	
-
-		
+			
 	// 2.1. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
 
@@ -239,7 +229,6 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	// 2.2. if stamp system
 	} else {
 
-
 		// 2.2.1.
 		if ( addStamps !== 0 || minusStamps !== 0 ) { 
 			
@@ -249,10 +238,8 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 			}
 			
 			outGuestStamps = outGuestStamps + guestStamps + ( addStamps + minusStamps );
-			outGuestStatus = outGuestStamps + guestStamps + 'пз.';			
+			outGuestStatus = outGuestStamps + 'пз.';			
 		}
-
-
 	}
 	
 	
@@ -266,7 +253,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ outGuestEntry.field("Имя") +' '+ outGuestEntry.field("Псевдоним");
 
-	message('guest entry is improved');
+	//message('guest entry is improved');
 }
 
 

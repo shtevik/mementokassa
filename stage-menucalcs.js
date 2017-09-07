@@ -36,13 +36,13 @@ if ( menu.length > 0 ) {
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
-    message(x);
-    //orderString += ', '+ structuredMenu[x].count +'x'+ x;
+    //message(x);
+    orderString += ', '+ structuredMenu[x].count +'x'+ x;
     
     
   }
   
-  message (total);
+  message (totalSum);
   message(orderString);
   
 

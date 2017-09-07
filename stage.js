@@ -183,7 +183,7 @@ if ( orderID == 0 ) {
 			
 
 			// 1.2.1.2.2. new guest was set to order  -- fields are equal
-			if ( prevGuestID == 0 && ( guestID !== 0 || guestEntryID !== 0 ) ) { 
+			if (  guestID !== 0 || guestEntryID !== 0 ) { 
 
 				message("new guest was set to order");
 				
@@ -191,7 +191,7 @@ if ( orderID == 0 ) {
 				if ( prevGuestID !== guestID )  {
 					outGuestID = guestID;
 					outGuestEntry = foundGuest;
-				} else if ( prevGuestEntry !== guestEntry )  {
+				} else if ( prevGuestID !== guestEntryID )  {
 					outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,"")); 
 					outGuestEntry = guestEntry;
 				}
@@ -201,8 +201,10 @@ if ( orderID == 0 ) {
 			
 			// if guest was deleted
 			if ( prevGuestID !== 0 && ( guestID == 0 || guestEntryID == 0 ) ) {
+				message ('guest was certainly deleted');
 				outGuestID = 0;	outGuestEntry = null;
 			}
+			message (' check');
 		}
 			
 

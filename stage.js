@@ -185,11 +185,11 @@ if ( orderID == 0 ) {
 		}
 			
 
-		/// 1.2.1.3. if only stamps field was changed
+		/// 1.2.1.3. if guest wasn't changed
 
-		else if ( guestID !== 0 || guestEntryID !== 0  ) {
+		else if ( guestID !== 0  ) {
 
-			message("order's stamps were changed ");
+			message("guest wasn't changed");
 			outGuestID = guestID;
 			outGuestEntry = guestEntry;
 			outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );

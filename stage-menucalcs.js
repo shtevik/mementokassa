@@ -13,8 +13,10 @@ if ( menu.length > 0 ) {
 
     if ( !structuredMenu[position] ) {
       //message ('null');
-      structuredMenu[position].count = 1;
-      structuredMenu[position].price = price; 
+      structuredMenu[position] = {
+        count: 1,
+        price: price 
+      }; 
     } else { 
       structuredMenu[position].count ++;
       //message ('exsist');

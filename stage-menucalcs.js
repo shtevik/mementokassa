@@ -12,20 +12,22 @@ if ( menu.length > 0 ) {
     
 
     if ( !structuredMenu[position] ) {
-      message ('null');
+      //message ('null');
       structuredMenu[position] = {
         count: 1,
         price: price 
       }; 
     } else { 
       structuredMenu[position].count ++;
-      message ('exsist');
+      //message ('exsist');
     }
     
     addStamps++;   
 
   }
   
+  
+  message ('x');
   
   var x;
   var totalSum = 0;
@@ -34,6 +36,7 @@ if ( menu.length > 0 ) {
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
+    message(x);
     //orderString += ', '+ structuredMenu[x].count +'x'+ x;
     
     

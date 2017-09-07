@@ -133,7 +133,7 @@ if ( orderID == 0 ) {
 	// 1.2.1. get data from saved entry 
 	var foundOrders = lib().find('"'+orderID+'"'); // if table is not index yet, mistake will be return
 	if ( foundOrders.length > 0 ) {
-		message ('prev data is found');
+		//message ('prev data is found');
 	var orderSavedData = foundOrders[0];
 	if ( typeof orderSavedData !== "undefined" && orderSavedData !== null ) { 
 		

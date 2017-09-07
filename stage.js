@@ -126,6 +126,8 @@ if ( orderID == 0 ) {
 } else {  // 2.  ( orderID !== 0 )
   	message('update phase');
 	
+	message(guestEntryID);
+	message(guestID);
 		
 	// 1.2.1. get data from saved entry 
 	var foundOrders = lib().find('"'+orderID+'"');
@@ -267,8 +269,8 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 // 3.
 
 message('after guest stamp work');
-message(outGuestEntry);
-message(outGuestID);
+//message(outGuestEntry);
+//message(outGuestID);
 
 entry().set("guestID", outGuestID);
 entry().set("Гость", outGuestEntry);

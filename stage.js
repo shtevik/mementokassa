@@ -175,7 +175,7 @@ if ( orderID == 0 ) {
 		
 		// 1.2.1.1. gather data from saved entry
 		var prevGuestID = Number(orderSavedData.field("guestID").replace(/[^0-9]/g,""));
-		var prevAddStamps = Number(orderSavedData.field("Добавить штампы"));
+		var prevAddStamps = Number(orderSavedData.field("Начисленно позиий"));
 		var prevMinusStamps = Number(orderSavedData.field("Списать штампы"));
 
 		/// 1.2.1.2. if guest was changed 

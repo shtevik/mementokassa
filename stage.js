@@ -50,20 +50,62 @@ common:
 
 // 0. gather general data
 
+var totalSum = 0;
+var orderString = '';
+var addStamps = 0; 
+//var addStamps = Number(entry().field("Добавить штампы"));
+var orderDiscount = Number(entry().field("Ручная скидка"));
+var minusStamps = Number(entry().field("Списать штампы"));
+
+var outSum = 0;
+
 var guestStatus = '';
 var guestDiscount = 0;
 var guestStamps = 0;
-var orderDiscount = Number(entry().field("Ручная скидка"));
-//var addStamps = Number(entry().field("Добавить штампы"));
-var minusStamps = Number(entry().field("Списать штампы"));
 
 var outGuestStamps = 0;
 var outGuestStatus = '';
 
 
-
 // 0.1. 
 
+var menu = entry().field('Меню');
+if ( menu.length > 0 ) {
+
+  var structuredMenu = {};
+  for ( var position, price, i=0; i < menu.length; i++ ) {
+  
+    position = menu[i].field("Наименование");
+    price = menu[i].field("Цена");
+    
+    if ( !structuredMenu[position] ) {
+      structuredMenu[position] = { count: 1, price: price }; 
+    } else { 
+      structuredMenu[position].count ++;
+    } 
+    addStamps++;   
+  }
+
+  var x;
+  for ( x in structuredMenu ) {
+    
+    totalSum += structuredMenu[x].price * structuredMenu[x].count;
+    //message(x);
+    if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
+    else orderString += ', '+ structuredMenu[x].count +'x'+ x;
+      
+  }
+}
+
+
+
+
+
+
+
+
+
+//. 2 guest work
 var guestID = Number(entry().field("guestID").replace(/[^0-9]/g,""));
 //message ( guestID ) ;
 var guestEntry = entry().field('Гость')[0];
@@ -74,12 +116,6 @@ if ( typeof guestEntry !== "undefined" ) guestEntryID = Number(guestEntry.field(
 //message (guestEntryID);
 var outGuestID = 0;
 var outGuestEntry = null;
-
-
-
-//message(guestEntry);
-//message(foundGuest);
-
 
 
 if ( guestID == 0 ) {
@@ -165,9 +201,7 @@ if ( orderID == 0 ) {
 				//outGuestStatus = '';	
 				outGuestID = 0;	outGuestEntry = null;
 			}
-			
-			
-						
+								
 			
 			// figure out that new guest was really set && it's not just unsetting one field of old guest
 			//if new guest - prev is zero and 
@@ -175,12 +209,7 @@ if ( orderID == 0 ) {
 			//if one differs from all 3 others and not equal zero
 				//if ( ( guestENtryID == prevGuestID && guestID !== 0 /* && guestID !== guestEntryID */ ) ||
 				     // ( guestID == prevGuestID && guestEntryID !== 0 ) )
-			
-			
-			
-			
-			
-			
+						
 
 			// 1.2.1.2.2. new guest was set to order  -- fields are equal
 			if (  guestID !== 0 || guestEntryID !== 0 ) { 
@@ -218,13 +247,8 @@ if ( orderID == 0 ) {
 			outGuestStamps = outGuestStamps - ( prevAddStamps + prevMinusStamps );
 		}
 		
-			
-
-		
+				
 	} } // 1.2.1
-
-
-
 
 } // 1.
 
@@ -240,8 +264,10 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	if (guestDiscount !== 0 ) {
 
 		// 2.1.1. use guestDisc if no discount per order
-		if ( orderDiscount == 0 ) 
+		if ( orderDiscount == 0 ) {
+			orderDiscount = guestDiscount;
 			entry().set("Ручная скидка", guestDiscount);
+		}
 
 		outGuestStatus = guestDiscount+'% '; // set orderGuestStatus if guest was changed 
 
@@ -267,7 +293,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 		}
 	}
 	
-	
+
 
 	
 	// 2.3. guest status
@@ -283,11 +309,30 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 
 
+
+
 // 3.
 
 message('after guest stamp work');
 //message(outGuestEntry);
 //message(outGuestID);
+
+
+if ( orderDiscount !== 0 ) { 
+	outSum = totalSum * ( 100 - orderDiscount ) / 100;
+	outSum = Math.floor ( outSum * 0.1 ) / 0.1;
+} else { outSum = totalSum; }
+
+entry().set("К оплате", outSum);
+entry().set("Заказ-перечень", orderString);
+entry().set("Начисленно позиций", addStamps);
+
+
+/* fields
+- orderString
+- sum & outSum
+- status string "rub. 20%"
+*/
 
 entry().set("guestID", outGuestID);
 entry().set("Гость", outGuestEntry);

@@ -86,13 +86,17 @@ if ( menu.length > 0 ) {
     addStamps++;   
   }
 
-  var x;
+  var x; var i = 1;
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
     //message(x);
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ', '+ structuredMenu[x].count +'x'+ x;
+	  
+    if ( i < 7 )
+      entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+    i++;
       
   }
 }

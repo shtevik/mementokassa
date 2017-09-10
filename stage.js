@@ -56,7 +56,7 @@ var addStamps = 0;
 //var addStamps = Number(entry().field("Добавить штампы"));
 var orderDiscount = Number(entry().field("Ручная скидка"));
 var minusStamps = Number(entry().field("Списать штампы"));
-
+var priceStatus = '';
 var outSum = 0;
 
 var guestStatus = '';
@@ -94,8 +94,8 @@ if ( menu.length > 0 ) {
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ', '+ structuredMenu[x].count +'x'+ x;
 	  
-    if ( i < 7 )
-      entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+    if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+    else if ( i == 6 ) entry().set("position"+i, 'см. еще..');
     i++;
       
   }
@@ -322,14 +322,20 @@ message('after guest stamp work');
 //message(outGuestID);
 
 
-if ( orderDiscount !== 0 ) { 
-	outSum = totalSum * ( 100 - orderDiscount ) / 100;
-	outSum = Math.floor ( outSum * 0.1 ) / 0.1;
-} else { outSum = totalSum; }
+if ( orderDiscount == 0 ) { 
+  outSum = totalSum;
+  priceStatus = outSum + "руб.";
+} else { 
+  outSum = totalSum * ( 100 - orderDiscount ) / 100;
+  outSum = Math.floor ( outSum * 0.1 ) / 0.1;
+  priceStatus = outSum + "руб. " + orderDiscount + "% ";
+}
 
 entry().set("К оплате", outSum);
 entry().set("Заказ-перечень", orderString);
 entry().set("Начисленно позиций", addStamps);
+
+entry().set("priceStatus", priceStatus );
 
 
 /* fields

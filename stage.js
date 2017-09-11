@@ -106,10 +106,6 @@ if ( menu.length > 0 ) {
 }
 
 
-message(addStamps);
-
-
-
 
 
 
@@ -261,7 +257,7 @@ if ( orderID == 0 ) {
 } // 1.
 
 
-message(outGuestID);
+
 
 
 // 2. check if guest is set
@@ -269,6 +265,8 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	
 	guestDiscount = Number(outGuestEntry.field("ПерсонСкидка"));
 	guestStamps = Number(outGuestEntry.field("Кол-во штампов"));
+	message(guestDiscount);
+	message(guestStamps);
 			
 	// 2.1. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
@@ -304,7 +302,9 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	}
 	
 
-
+	message(addStamps);
+	message(outGuestID);
+	
 	
 	// 2.3. guest status
 	
@@ -315,6 +315,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ outGuestEntry.field("Имя") +' '+ outGuestEntry.field("Псевдоним");
 
 	message('guest entry is improved');
+	
 }
 
 

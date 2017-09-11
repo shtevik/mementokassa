@@ -261,6 +261,8 @@ if ( orderID == 0 ) {
 } // 1.
 
 
+message(outGuestID);
+
 
 // 2. check if guest is set
 if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !== null ) { 
@@ -312,7 +314,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ outGuestEntry.field("Имя") +' '+ outGuestEntry.field("Псевдоним");
 
-	//message('guest entry is improved');
+	message('guest entry is improved');
 }
 
 

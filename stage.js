@@ -324,7 +324,6 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 // 3.
 
-message('after guest stamp work');
 //message(outGuestEntry);
 //message(outGuestID);
 
@@ -357,6 +356,7 @@ entry().set("Гость", outGuestEntry);
 entry().set( "guestStatus", outGuestStatus );
 
 
+message('after guest stamp work');
 
 
 

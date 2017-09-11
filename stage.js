@@ -144,7 +144,7 @@ var orderID = entry().field("orderID");
 
 // 1.1. create phase
 if ( orderID == 0 ) { 
-	message('create phase');
+	//message('create phase');
 	
 	// 1.1.1. set orderID
 	entry().set('orderID', Number(Date.now()));
@@ -166,7 +166,7 @@ if ( orderID == 0 ) {
  
 // 1.2. update phase
 } else {  // 2.  ( orderID !== 0 )
-  	message('update phase');
+  	//message('update phase');
 	
 	
 		
@@ -302,11 +302,6 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 		}
 	}
 	
-
-	message('disctount: '+guestDiscount);
-	message('guestStamps: '+guestStamps);
-	message('addStamps: '+addStamps);
-	
 	
 	// 2.3. guest status
 	
@@ -316,7 +311,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 	if ( outGuestStatus !== '' ) outGuestStatus = outGuestStatus +' '+ outGuestEntry.field("Имя") +' '+ outGuestEntry.field("Псевдоним");
 
-	message('guest entry is improved');
+	//message('guest entry is improved');
 	
 }
 
@@ -332,11 +327,11 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 
 if ( orderDiscount == 0 ) { 
   outSum = totalSum;
-  priceStatus = outSum + "руб.";
+  priceStatus = outSum + " руб.   ";
 } else { 
   outSum = totalSum * ( 100 - orderDiscount ) / 100;
   outSum = Math.floor ( outSum * 0.1 ) / 0.1;
-  priceStatus = outSum + "руб. " + orderDiscount + "% ";
+  priceStatus = outSum + "руб. " + orderDiscount + "%   ";
 }
 
 entry().set("К оплате", outSum);
@@ -358,7 +353,7 @@ entry().set("Гость", outGuestEntry);
 entry().set( "guestStatus", outGuestStatus );
 
 
-message('after guest stamp work');
+//message('after guest stamp work');
 
 
 

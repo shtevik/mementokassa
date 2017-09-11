@@ -86,7 +86,7 @@ if ( menu.length > 0 ) {
     addStamps++;   
   }
 
-  var x; var i = 1;
+  var x; var i = 1; 
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
@@ -95,14 +95,18 @@ if ( menu.length > 0 ) {
     else orderString += ', '+ structuredMenu[x].count +'x'+ x;
 	  
     if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
-    else if ( i == 6 ) entry().set("position"+i, 'см. еще..');
+    else if ( i == 6 ) { 
+	    // if ( structuredMenu[x]
+	    entry().set("position"+i, 'см. еще..');
+	    
+    }
     i++;
       
   }
 }
 
 
-
+message(addStamps);
 
 
 

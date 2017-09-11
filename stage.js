@@ -265,8 +265,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	
 	guestDiscount = Number(outGuestEntry.field("ПерсонСкидка"));
 	guestStamps = Number(outGuestEntry.field("Кол-во штампов"));
-	message(guestDiscount);
-	message(guestStamps);
+
 			
 	// 2.1. if guest uses own discount sys
 	if (guestDiscount !== 0 ) {
@@ -302,8 +301,9 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 	}
 	
 
-	message(addStamps);
-	message(outGuestID);
+	message('disctount: '+guestDiscount);
+	message('guestStamps: '+guestStamps);
+	message('addStamps: '+addStamps);
 	
 	
 	// 2.3. guest status

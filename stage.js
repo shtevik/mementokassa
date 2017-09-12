@@ -275,6 +275,7 @@ if ( outGuestID !== 0 && typeof outGuestEntry !== "undefined" && outGuestEntry !
 		// 2.1.1. use guestDisc if no discount per order
 		if ( orderDiscount == 0 ) {
 			orderDiscount = guestDiscount;
+			addStamps = 0;
 			entry().set("Ручная скидка", guestDiscount);
 		}
 

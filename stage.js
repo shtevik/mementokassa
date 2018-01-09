@@ -73,17 +73,19 @@ var menu = entry().field('Меню');
 if ( menu.length > 0 ) {
 
   var structuredMenu = {};
-  for ( var position, price, i=0; i < menu.length; i++ ) {
+  for ( var position, price, amount, i=0; i < menu.length; i++ ) {
   
     position = menu[i].field("Наименование");
     price = menu[i].field("Цена");
+    amount = menu[i].attr("Кол-во"); 
+    message(amount);
     
     if ( !structuredMenu[position] ) {
-      structuredMenu[position] = { count: 1, price: price }; 
+      structuredMenu[position] = { count: amount, price: price }; 
     } else { 
-      structuredMenu[position].count ++;
+      structuredMenu[position].count += amount;
     } 
-    addStamps++;   
+    addStamps += amount;   
   }
 
   var x; var i = 1; 
@@ -94,15 +96,22 @@ if ( menu.length > 0 ) {
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ', '+ structuredMenu[x].count +'x'+ x;
 	  
-    if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+    /*if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
     else if ( i == 6 ) { 
 	    // if ( structuredMenu[x]
-	    entry().set("position"+i, 'см. еще..');
-	    
-    }
-    i++;
-      
+	    entry().set("position"+i, 'см. еще..');	    
+    }*/
+	  
+    i++;   
   }
+		
+  for ( var i = 0; i < 7; i++ ) {
+     if ( i < 6 ) {
+	 if ( structuredMenu[x] ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+	 else entry().set("position"+i, '');
+     } else if ( i == 6 )  entry().set("position"+i, 'см. еще..');	  
+  }
+	
 }
 
 

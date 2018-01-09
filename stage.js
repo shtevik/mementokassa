@@ -78,7 +78,6 @@ if ( menu.length > 0 ) {
     position = menu[i].field("Наименование");
     price = menu[i].field("Цена");
     amount = menu[i].attr("Кол-во"); 
-    message(amount);
     
     if ( !structuredMenu[position] ) {
       structuredMenu[position] = { count: amount, price: price }; 
@@ -86,10 +85,6 @@ if ( menu.length > 0 ) {
       structuredMenu[position].count += amount;
     } 
     addStamps += amount;   
-  }
-	
-  for ( var i = 1; i < 7; i++ ) {
-     entry().set("position"+i, '');
   }
 	
   var x; var i = 1; 
@@ -172,6 +167,11 @@ if ( orderID == 0 ) {
 // 1.2. update phase
 } else {  // 2.  ( orderID !== 0 )
   	//message('update phase');
+
+	// clear menu-positions list on orders overall screen
+	for ( var i = 1; i < 7; i++ ) {
+     	   entry().set("position"+i, '');
+  	}
 	
 	
 		

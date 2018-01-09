@@ -104,11 +104,11 @@ if ( menu.length > 0 ) {
     i++;  */ 
   }
 		
-  for ( var i = 0; i < 7; i++ ) {
+  for ( var i = 1; i < 7; i++ ) {
      if ( i < 6 ) {
-	 if ( structuredMenu[i] ) entry().set("position"+i+1, structuredMenu[i].count +'x'+ i);
-	 else entry().set("position"+i+1, '');
-     } else if ( i == 6 )  entry().set("position"+i+1, 'см. еще..');	  
+	 if ( structuredMenu[i-1] ) entry().set("position"+i, structuredMenu[i-1].count +'x'+ i);
+	 else entry().set("position"+i, '');
+     } else if ( i == 6 )  entry().set("position"+i, 'см. еще..');	  
   }
 	
 }

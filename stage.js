@@ -107,7 +107,7 @@ if ( menu.length > 0 ) {
 		
   for ( var i = 0; i < 7; i++ ) {
      if ( i < 6 ) {
-	 if ( structuredMenu[x] ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+	 if ( structuredMenu[i] ) entry().set("position"+i, structuredMenu[i].count +'x'+ i);
 	 else entry().set("position"+i, '');
      } else if ( i == 6 )  entry().set("position"+i, 'см. еще..');	  
   }

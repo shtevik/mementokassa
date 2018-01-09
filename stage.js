@@ -70,6 +70,12 @@ var outGuestStatus = '';
 // 0.1. 
 
 var menu = entry().field('Меню');
+
+// clear menu-positions list on orders overall screen
+for ( var i = 1; i < 7; i++ ) {
+   entry().set("position"+i, '');
+}
+
 if ( menu.length > 0 ) {
 
   var structuredMenu = {};
@@ -168,11 +174,6 @@ if ( orderID == 0 ) {
 } else {  // 2.  ( orderID !== 0 )
   	//message('update phase');
 
-	// clear menu-positions list on orders overall screen
-	for ( var i = 1; i < 7; i++ ) {
-     	   entry().set("position"+i, '');
-  	}
-	
 	
 		
 	// 1.2.1. get data from saved entry 

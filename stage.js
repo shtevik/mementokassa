@@ -87,8 +87,12 @@ if ( menu.length > 0 ) {
     } 
     addStamps += amount;   
   }
-
-  var x; //var i = 1; 
+	
+  for ( var i = 1; i < 7; i++ ) {
+     entry().set("position"+i, '');
+  }
+	
+  var x; var i = 1; 
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
@@ -96,20 +100,13 @@ if ( menu.length > 0 ) {
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ', '+ structuredMenu[x].count +'x'+ x;
 	  
-    /*if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
+    if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
     else if ( i == 6 ) { 
-	    // if ( structuredMenu[x]
 	    entry().set("position"+i, 'см. еще..');	    
     }  
-    i++;  */ 
+    i++;  
   }
-		
-  for ( var i = 1; i < 7; i++ ) {
-     if ( i < 6 ) {
-	 if ( structuredMenu[i-1] ) entry().set("position"+i, structuredMenu[i-1].count +'x'+ i);
-	 else entry().set("position"+i, '');
-     } else if ( i == 6 )  entry().set("position"+i, 'см. еще..');	  
-  }
+
 	
 }
 

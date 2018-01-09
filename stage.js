@@ -79,9 +79,10 @@ for ( var i = 1; i < 7; i++ ) {
 if ( menu.length > 0 ) {
 
   var structuredMenu = {};
-  for ( var position, price, amount, i=0; i < menu.length; i++ ) {
+  for ( var position, price, amount, posipka = '', i=0; i < menu.length; i++ ) {
   
-    position = menu[i].field("Наименование");
+    if ( menu[i].attr("Посыпка") !== "[Посыпка]") posipka = menu[i].attr("Посыпка"); 
+    position = menu[i].field("Наименование")+posipka;
     price = menu[i].field("Цена");
     amount = menu[i].attr("Кол-во"); 
     

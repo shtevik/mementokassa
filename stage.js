@@ -95,11 +95,12 @@ if ( menu.length > 0 ) {
     addStamps += amount;   
   }
 	
+   message(structuredMenu.length);
+
   var x; var i = 1; 
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
-    //message(x);
     if ( structuredMenu.length !== 1 ) orderString += i + ').  '; 
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ';   ' + i + ').  ' + structuredMenu[x].count +'x'+ x;

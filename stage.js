@@ -81,8 +81,8 @@ if ( menu.length > 0 ) {
   var structuredMenu = {};
   for ( var position, price, amount, posipka = '', i=0; i < menu.length; i++ ) {
   
-    if ( menu[i].attr("Посыпка") !== "[Посыпка/Доп]"  ||  menu[i].attr("Посыпка") !== "[Доп]") posipka = menu[i].attr("Посыпка"); 
-    position = menu[i].field("Наименование") + "/" + posipka;
+    if ( menu[i].attr("Посыпка") !== "[Посыпка/Доп]"  &&  menu[i].attr("Посыпка") !== "[Доп]") posipka = "/" + menu[i].attr("Посыпка"); 
+    position = menu[i].field("Наименование") + posipka;
     price = menu[i].field("Цена");
     amount = menu[i].attr("Кол-во"); 
     

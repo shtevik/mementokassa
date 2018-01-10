@@ -95,7 +95,7 @@ if ( menu.length > 0 ) {
     addStamps += amount;   
   }
 	
-   message(structuredMenu.length); 
+   message(Object.keys(structuredMenu).length); 
 
   var x; var i = 1; 
   for ( x in structuredMenu ) {

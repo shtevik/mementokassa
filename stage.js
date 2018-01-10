@@ -101,7 +101,7 @@ if ( menu.length > 0 ) {
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
-    if ( structuredMenu.length !== 1 ) orderString += i + ').  '; 
+    //if ( structuredMenu.length !== 1 ) orderString += i + ').  '; 
     if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
     else orderString += ';   ' + i + ').  ' + structuredMenu[x].count +'x'+ x;
 	  

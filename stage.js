@@ -81,8 +81,8 @@ if ( menu.length > 0 ) {
   var structuredMenu = {};
   for ( var position, price, amount, posipka = '', i=0; i < menu.length; i++ ) {
   
-    if ( menu[i].attr("Посыпка") !== "[Посыпка]") posipka = menu[i].attr("Посыпка"); 
-    position = menu[i].field("Наименование")+posipka;
+    if ( menu[i].attr("Посыпка") !== "[Посыпка/Доп]"  ||  menu[i].attr("Посыпка") !== "[Доп]") posipka = menu[i].attr("Посыпка"); 
+    position = menu[i].field("Наименование") + "/" + posipka;
     price = menu[i].field("Цена");
     amount = menu[i].attr("Кол-во"); 
     
@@ -99,8 +99,8 @@ if ( menu.length > 0 ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
     //message(x);
-    if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
-    else orderString += ', '+ structuredMenu[x].count +'x'+ x;
+    if ( orderString == '' ) orderString += i + '). ' + structuredMenu[x].count +'x'+ x;
+    else orderString += ';   ' + i + '). ' + structuredMenu[x].count +'x'+ x;
 	  
     if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);
     else if ( i == 6 ) { 

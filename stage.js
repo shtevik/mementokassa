@@ -101,8 +101,10 @@ if ( menu.length > 0 ) {
   for ( x in structuredMenu ) {
     
     totalSum += structuredMenu[x].price * structuredMenu[x].count;
-    if ( structuredMenuLength !== 1 && orderString == '' ) orderString += i + ').  '; 
-    if ( orderString == '' ) orderString += structuredMenu[x].count +'x'+ x;
+    if ( orderString == '' ) { 
+	    if ( structuredMenuLength !== 1 ) orderString += i + ').  ';
+	    orderString += structuredMenu[x].count +'x'+ x;
+    }
     else orderString += ';   ' + i + ').  ' + structuredMenu[x].count +'x'+ x;
 	  
     if ( i < 6 ) entry().set("position"+i, structuredMenu[x].count +'x'+ x);

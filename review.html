@@ -1,1 +1,361 @@
-Yo!
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Cover Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+  <style type="text/css">/*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+.iw-contextMenu {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10);
+    border: 1px solid #c8c7cc;
+    border-radius: 11px;
+    display: none;
+    z-index: 1000000132;
+    max-width: 300px;
+}
+
+.iw-cm-menu {
+    background: #fff;
+    color: #000;
+    margin: 0px;
+    padding: 0px;
+}
+
+.iw-curMenu {
+}
+
+.iw-cm-menu li {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif;
+    list-style: none;
+    padding: 10px;
+    padding-right: 20px;
+    border-bottom: 1px solid #c8c7cc;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+    margin: 0;
+    line-height: inherit;
+}
+
+.iw-cm-menu li:first-child {
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+
+.iw-cm-menu li:last-child {
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    border-bottom: none;
+}
+
+.iw-mOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    opacity: .5;
+}
+
+.iw-contextMenu li.iw-mDisable {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.iw-mSelected {
+    background-color: #F6F6F6;
+}
+
+.iw-cm-arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #000;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -5px;
+}
+
+.iw-mSelected > .iw-cm-arrow-right {
+}
+
+/*context menu css end */
+</style>
+
+
+<style type="text/css">/* This is not a zero-length file! */</style>
+
+
+<!--<style type="text/css">@-webkit-keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}
+
+<!--
+@keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}</style>
+-->
+
+ </head>
+
+  <body class="">
+
+    <div class="cover-container p-3 mx-auto d-flex h-100  flex-column">
+      
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading text-center">Отсавьте отзыв</h1>
+        <h3 class="text-center my-3" style="color: snow;"></h3>
+        <p class="text-center" style="color: darkgray;">
+            Помогите нам стать лучше Делитесь обратной связью и получайте  <span class="text-danger"><strong>скидки</strong></span> за каждый коструктивный отзыв.</p>
+
+
+
+
+
+
+
+            <div class="my-5">
+            <h3 class="text-center my-3" style="color: snow;">Анонимно<br>либо в личку</h3>
+                <p class="text-center" style="color: darkgray;">
+                 <span class="text-warning">скидку 15%</span> на каждую след покупку.</p>
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                        <div class="row">
+                      <img class="align-self-center " src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w50-rw" data-holder-rendered="true" style="width: 70px;height: 70px; margin: 0 auto; display: block;">
+                       </div>
+                    </div>
+                    <div class="col-4"><div class="row">
+                      <img class="align-self-center " src="https://lh3.googleusercontent.com/8OiHVtg9BUN9Ms3LjD7RBhWGimOBSUoo7hdPymXcl-nIXeqA3C6La7qK59squ-emgQ=w50-rw" data-holder-rendered="true" style="width: 70px;height: 70px;  margin: 0 auto; display: block;">
+                    </div></div>
+                    <div class="col-4"><div class="row">
+                        <img id="submit" class="align-self-center " 
+                        data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                        src="https://cdn1.iconfinder.com/data/icons/crimes-and-justice/100/14-512.png" data-holder-rendered="true" style="width: 70px;height: 70px;  margin: 0 auto; display: block; border-radius: 23px; background-color: white;">
+                    </div></div>
+                  </div>
+                </div>
+
+
+                <div   id="collapseExample" class="collapse"   >
+                <form  action="https://formspree.io/v.shtefanets@gmail.com"  method="POST"  class="form-group">
+                     
+                        <textarea rows="5"  name="Отзыв" required autofocus maxlength="500" placeholder="Ваш отзыв" 
+                        class="form-control  form-control-lg"
+                        style="width: 100%; display: block; margin: 10px auto;"></textarea>
+                    
+                    <input type="hidden" name="_format" value="plain" />
+                    <input type="hidden" name="_language" value="ru" />
+
+                    <input  type="submit" value="Отправить" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
+                    
+                </form>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="">
+<h3 class="text-center my-3" style="color: snow;">В приложениях и соц.сетях</h3>
+<p class="text-center" style="color: darkgray;">
+Получай <span class="text-warning">до 30% скидки</span> на каждую следующюю покупку.<br> 
+Собери их все!</p>
+</div>
+
+<div class="my-5"><ul class="list-unstyled"> 
+
+<li class="media my-5">
+  <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">1</div>
+  <div class="media-body">
+    <div class="media">
+      <img class="mr-3 align-self-center" src="https://yandex.ru/maps/favicon.png" style="width: 32px; height: 32px;" data-holder-rendered="true">
+      <div class="media-body">
+        <h5 class="mt-0">Яндекс.Карты</h5>
+      </div>
+    </div>
+    Скидка
+  </div>
+</li>
+
+<li class="media">
+    <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">2</div>
+    <div class="media-body">
+        <div class="media">
+            <img class="mr-3 align-self-center " style="width: 32px;height: 32px;" data-holder-rendered="true" src="https://lh3.googleusercontent.com/MOf9Kxxkj7GvyZlTZOnUzuYv0JAweEhlxJX6gslQvbvlhLK5_bSTK6duxY2xfbBsj43H=w40-rw">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">Google.Карты</h5>
+            </div>
+        </div>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
+    </div>
+  </li>
+
+  <li class="media my-5">
+    <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">3</div>
+    <div class="media-body">
+        <div class="media">
+            <img class="mr-3 align-self-center rounded-circle" src="https://lh3.googleusercontent.com/NYSolAlLOza3-J7HIjwasiyWyNKaSEpGoOAOucVirPsRQ8-pDaxo8xZ1AVhvYTcg0g=w50-rw" data-holder-rendered="true" style="width: 32px;height: 32px;">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">TripAdvisor</h5>
+            </div>
+        </div>
+        <span class="text-warning ">20% скидка за отзыв с фото</span><br>
+        <span class="text-info">10% за отзыв без фото</span>
+    </div>
+  </li>
+
+  <li class="media">
+    <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">4</div>
+    <div class="media-body">
+        <div class="media">
+            <img class="mr-3 align-self-center " src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w50-rw" data-holder-rendered="true" style="width: 32px;height: 32px;">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">Instagram</h5>
+            </div>
+        </div>
+        <span class="text-warning ">20% скидка за отзыв с фото</span><br>
+    </div>
+  </li>
+
+  <li class="media my-5" style="filter: grayscale(89%); ">
+    <div class="mr-3 rounded-circle align-self-center" style="width: 40px;height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; position: relative; margin-right: 2rem !important;">
+        <span style="position: absolute; font-size: 30px; margin-top: -15px; margin-left: -10px;">✓</span>
+    </div>
+    <div class="media-body" >
+        <div class="media">
+            <img class="mr-3 align-self-center" src="https://hstatic.2gis.com//assets/_common/favicon.ico" data-holder-rendered="true" style="width: 32px;height: 32px;">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1" style="opacity: 0.75;">2GIS – карты города</h5>
+            </div>
+        </div>   
+        <span class="text-danger font-weight-bold" style="text-decoration: line-through;">20% скидка за отзыв с фото</span><br>
+        <span class="text-warning" style="text-decoration: line-through;">10% за отзыв без фото</span>
+    </div>
+  </li>
+
+</ul></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+      <footer class="mastfoot mt-auto">
+        <p>Спасибо. Ждем вас снова в Куртош&Кофе</p>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script> 
+
+
+                  <script>
+                  /*jQuery( document ).ready(function() {  
+                    jQuery( "#submit" ).click(function() {
+                      jQuery( "#collapseExample" ).show();
+                    });
+                 }); */
+                </script>
+
+</body>
+</html>

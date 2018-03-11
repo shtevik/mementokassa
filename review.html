@@ -112,62 +112,147 @@
 
   <body class="" style="height: auto;">
 
-    <div class="cover-container p-3 mx-auto d-flex   flex-column"> h-100
+    <div class="cover-container p-3 mx-auto d-flex   flex-column"> 
       
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading text-center">Отсавьте отзыв</h1>
+        <h1 class="cover-heading text-center">Оставьте отзыв</h1>
         <h3 class="text-center my-3" style="color: snow;"></h3>
-        <p class="text-center" style="color: darkgray;">
-            Помогите нам стать лучше Делитесь обратной связью и получайте  <span class="text-danger"><strong>скидки</strong></span> за каждый коструктивный отзыв.</p>
+
+        <p class="text-center" style="color: lightgray;">
+            Получайте <span class="text-warning"><strong>скидки до 30% *</strong></span> за каждый отзыв за то, что помогаете нам становится лучше.
+        </p>
+
+         <p class="text-center" style="color: darkgray; font-style: italic;">
+            <span class="text-warning"><b>*</b></span> Для получения разовой скидки на покупку, покажи на кассе на экране телефона отправленный отзыв.
+        </p>
+        <p class="text-center" style="color: lightgray; font-size: 1.1rem;">
+            Собери их все!  
+        </p>
 
 
 
+        <div class="my-5">
+
+            <h3 class="text-center my-3" style="color: snow; font-weight: normal;" >
+                Предложения <i style="font-weight: lighter;  font-size: 1.6rem">/ замечания по работе</i>
+            </h3>
+
+            <p class="text-center" style="color: darkgray;">
+                <span class="text-warning">20% скидки * </span> за каждый отзыв <br>о качестве продукции, нововведениях, обслуживании, новых бариста, атмосфере.
+            </p>
 
 
 
+            <div id="accordion">
 
-            <div class="my-5">
-            <h3 class="text-center my-3" style="color: snow;">Анонимно<br>либо в личку</h3>
-                <p class="text-center" style="color: darkgray;">
-                 <span class="text-warning">скидку 15%</span> на каждую след покупку.</p>
+                <style>
+                .card {
+                    background-color: inherit;
+                    border: none;
+                }
+                .card-header {
+                    background-color: rgba(255,255,255,.93);
+                    border-radius: .3rem !important;
+                    border: none;
+                    margin: 7px 14px;
+                    color: black;
+                    padding-top: 0.35rem;
+                    padding-bottom: 0.35rem;
+                }
+                .card-header h4 {
+                    font-weight: lighter;
+                    font-size: 1.19rem;
+                    margin: 4px 0;
+                }
+                .card-header p {
+                    color: darkgray;
+                    font-style: italic;
+                    text-shadow: none;
+                    text-align: center;
+                    margin: 0.3rem 0 0;
+                }
 
-                <div class="container">
-                  <div class="row">
-                    <div class="col-4">
-                        <div class="row">
-                      <img class="align-self-center " src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w50-rw" data-holder-rendered="true" style="width: 70px;height: 70px; margin: 0 auto; display: block;">
-                       </div>
+
+                </style>
+
+
+              <div class="card">
+                <div class="card-header" id="headingOne"
+                 data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <h4 class="text-center "  >
+                      Анонимно
+                    </h4>
+                    <p>или без лишних авторизаций</p>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                     <div class="card-body">
+                        <p class="text-center" style="color: darkgray;">
+                            За анонимный отзыв не получится начислить скидку. Но вы можете указать email, тогда анонимность не сохранится, но вам на почту придет копия вашего отзыва. Показав его на кассе, вы сможете получить скидку. 
+                        </p>
+                        <form  action="https://formspree.io/v.shtefanets@gmail.com"  method="POST"  class="form-group">
+                             
+                                <textarea rows="5"  name="Отзыв" required autofocus maxlength="500" placeholder="Ваш отзыв" 
+                                class="form-control  form-control-lg"
+                                style="width: 100%; display: block; margin: 10px auto;"></textarea>
+
+                                <input name="_cc" placeholder="Email по желанию для скидки" value="" 
+                                class="form-control  "  
+                                style="width: 100%; display: block; margin: 20px auto 10px;"
+                                />
+
+
+                            
+                            
+                            <input type="hidden" name="_format" value="plain" />
+                            <input type="hidden" name="_language" value="ru" />
+                            <input type="text" name="_gotcha" style="display:none" />
+
+                            <input  type="submit" 
+                            value="Отправить >>>" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
+                            
+                        </form>
                     </div>
-                    <div class="col-4"><div class="row">
-                      <img class="align-self-center " src="https://lh3.googleusercontent.com/8OiHVtg9BUN9Ms3LjD7RBhWGimOBSUoo7hdPymXcl-nIXeqA3C6La7qK59squ-emgQ=w50-rw" data-holder-rendered="true" style="width: 70px;height: 70px;  margin: 0 auto; display: block;">
-                    </div></div>
-                    <div class="col-4"><div class="row">
-                        <img id="submit" class="align-self-center " 
-                        data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                        src="https://cdn1.iconfinder.com/data/icons/crimes-and-justice/100/14-512.png" data-holder-rendered="true" style="width: 70px;height: 70px;  margin: 0 auto; display: block; border-radius: 23px; background-color: white;">
-                    </div></div>
-                  </div>
                 </div>
+              </div>
 
 
-                <div   id="collapseExample" class="collapse"   >
-                <form  action="https://formspree.io/v.shtefanets@gmail.com"  method="POST"  class="form-group">
-                     
-                        <textarea rows="5"  name="Отзыв" required autofocus maxlength="500" placeholder="Ваш отзыв" 
-                        class="form-control  form-control-lg"
-                        style="width: 100%; display: block; margin: 10px auto;"></textarea>
-                    
-                    <input type="hidden" name="_format" value="plain" />
-                    <input type="hidden" name="_language" value="ru" />
+              <div class="card" >
+               <div class="card-header" id="headingTwo"
+               data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                   <h4 class="text-center " >
+                     В личку 
+                   </h4>
+                   <p>в социальных сетях</p>
+               </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                     <div class="card-body">
+                        <p class="text-center" style="color: darkgray;">
 
-                    <input  type="submit" value="Отправить" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
-                    
-                </form>
+                        </p>
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-3"><div class="row"></div></div>
+                            <div class="col-3">
+                                <div class="row">
+                                <a href="http://instagram.com/kurtoshcoffee">
+                              <img class="align-self-center " src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w50-rw" data-holder-rendered="true" style="width: 55px;height: 55px; margin: 0 auto; display: block;">
+                                </a>
+                               </div>
+                            </div>
+                            <div class="col-3"><div class="row">
+                                <a href="http://vk.me/kurtoshcoffee">
+                              <img class="align-self-center " src="https://lh3.googleusercontent.com/8OiHVtg9BUN9Ms3LjD7RBhWGimOBSUoo7hdPymXcl-nIXeqA3C6La7qK59squ-emgQ=w50-rw" data-holder-rendered="true" style="width: 55px;height: 55px;  margin: 0 auto; display: block;">
+                                </a>
+                            </div></div>
+                            <div class="col-3"><div class="row">
+                            </div></div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
-
-            </div>
-
+              </div>
 
 
 
@@ -177,21 +262,17 @@
 
 
 
-
-
-
-
-
-<div class="">
-<h3 class="text-center my-3" style="color: snow;">В приложениях и соц.сетях</h3>
+<div class="my-5">
+<h3 class="text-center my-3" style="color: snow; font-weight: normal;">Поделиться со всеми,
+<br><i style="font-weight: lighter;">опубликовав в сети</i></h3>
 <p class="text-center" style="color: darkgray;">
-Получай <span class="text-warning">до 30% скидки</span> на каждую следующюю покупку.<br> 
-Собери их все!</p>
+<span class="text-warning">30% скидки</span> за отзыв с фото; <br><span class="text-warning">20% скидки</span> за текстовый отзыв без фото.
+</p>
 </div>
 
 <div class="my-5"><ul class="list-unstyled"> 
 
-<li class="media my-5">
+<li class="media my-5"   onclick='window.location = "https://yandex.ru/search/touch/?text=куртош%20кофе&lr=213"'>
   <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">1</div>
   <div class="media-body">
     <div class="media">
@@ -200,11 +281,11 @@
         <h5 class="mt-0">Яндекс.Карты</h5>
       </div>
     </div>
-    Скидка
+    Пролистать до карточки Куртош&Кофе, открыв ее, найти раздел Отзывы
   </div>
 </li>
 
-<li class="media">
+<li class="media" onclick='window.location = "https://g.co/kgs/AQe6AB"'>
     <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">2</div>
     <div class="media-body">
         <div class="media">
@@ -213,11 +294,11 @@
                 <h5 class="mt-0 mb-1">Google.Карты</h5>
             </div>
         </div>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
+        Раздел "Оценка и отзыв" на странице
     </div>
   </li>
 
-  <li class="media my-5">
+  <li class="media my-5"  onclick='window.location = "https://goo.gl/cYF72X"'>
     <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">3</div>
     <div class="media-body">
         <div class="media">
@@ -226,12 +307,11 @@
                 <h5 class="mt-0 mb-1">TripAdvisor</h5>
             </div>
         </div>
-        <span class="text-warning ">20% скидка за отзыв с фото</span><br>
-        <span class="text-info">10% за отзыв без фото</span>
+        Раздел "Отзывы" на странице > "Оставить отзыв"
     </div>
   </li>
 
-  <li class="media">
+  <li class="media" onclick='window.location = "https://instagram.com/kurtoshcoffee"'>
     <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">4</div>
     <div class="media-body">
         <div class="media">
@@ -240,11 +320,11 @@
                 <h5 class="mt-0 mb-1">Instagram</h5>
             </div>
         </div>
-        <span class="text-warning ">20% скидка за отзыв с фото</span><br>
+        Сделать пост с упоминанием @kurtoshcoffee 
     </div>
   </li>
 
-  <li class="media my-5" style="filter: grayscale(89%); ">
+  <li class="media my-5" style="filter: grayscale(89%); " onclick='window.location = "http://go.2gis.com/wpzsb"'>
     <div class="mr-3 rounded-circle align-self-center" style="width: 40px;height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; position: relative; margin-right: 2rem !important;">
         <span style="position: absolute; font-size: 30px; margin-top: -15px; margin-left: -10px;">✓</span>
     </div>
@@ -252,11 +332,10 @@
         <div class="media">
             <img class="mr-3 align-self-center" src="https://hstatic.2gis.com//assets/_common/favicon.ico" data-holder-rendered="true" style="width: 32px;height: 32px;">
             <div class="media-body">
-                <h5 class="mt-0 mb-1" style="opacity: 0.75;">2GIS – карты города</h5>
+                <h5 class="mt-0 mb-1" style="opacity: 0.75;">Карты 2GIS</h5>
             </div>
         </div>   
-        <span class="text-danger font-weight-bold" style="text-decoration: line-through;">20% скидка за отзыв с фото</span><br>
-        <span class="text-warning" style="text-decoration: line-through;">10% за отзыв без фото</span>
+        Раздел "Отзывы" > "Оставить отзыв на Флампе"
     </div>
   </li>
 

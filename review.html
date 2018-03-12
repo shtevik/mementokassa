@@ -118,17 +118,17 @@
       <main role="main" class="inner cover">
         <h1 class="cover-heading text-center">Оставьте отзыв</h1>
         <h3 class="text-center my-3" style="color: snow;"></h3>
-
+        <p class="text-center" style="color: lightgray; font-size: 1.1rem;">
+            Собери все скидки!  
+        </p>
         <p class="text-center" style="color: lightgray;">
-            Получайте <span class="text-warning"><strong>скидки до 30% *</strong></span> за каждый отзыв за то, что помогаете нам становится лучше.
+            Получайте <span class="text-warning"><strong>скидки до 30% *</strong></span> за то, что помогаете нам становится лучше.
         </p>
 
          <p class="text-center" style="color: darkgray; font-style: italic;">
             <span class="text-warning"><b>*</b></span> Для получения разовой скидки на покупку, покажи на кассе на экране телефона отправленный отзыв.
         </p>
-        <p class="text-center" style="color: lightgray; font-size: 1.1rem;">
-            Собери их все!  
-        </p>
+
 
 
 
@@ -187,23 +187,21 @@
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                      <div class="card-body">
-                        <p class="text-center" style="color: darkgray;">
-                            За анонимный отзыв не получится начислить скидку. Но вы можете указать email, тогда анонимность не сохранится, но вам на почту придет копия вашего отзыва. Показав его на кассе, вы сможете получить скидку. 
-                        </p>
+
                         <form  action="https://formspree.io/v.shtefanets@gmail.com"  method="POST"  class="form-group">
                              
                                 <textarea rows="5"  name="Отзыв" required autofocus maxlength="500" placeholder="Ваш отзыв" 
                                 class="form-control  form-control-lg"
                                 style="width: 100%; display: block; margin: 10px auto;"></textarea>
 
-                                <input name="_cc" placeholder="Email по желанию для скидки" value="" 
+                                <input type="email" name="_cc" placeholder="Email по желанию для скидки" value="" 
                                 class="form-control  "  
                                 style="width: 100%; display: block; margin: 20px auto 10px;"
                                 />
 
 
-                            
-                            
+                            <input type="hidden" name="_replyto" value="spervakofe@gmail.com" />
+                            <input type="hidden" name="_subject" value="New submission!" />
                             <input type="hidden" name="_format" value="plain" />
                             <input type="hidden" name="_language" value="ru" />
                             <input type="text" name="_gotcha" style="display:none" />
@@ -212,6 +210,9 @@
                             value="Отправить >>>" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
                             
                         </form>
+                        <p class="text-center" style="color: darkgray;">
+                            За анонимный отзыв не получится начислить скидку. Но вы можете указать email, тогда анонимность не сохранится, но вам на почту придет копия вашего отзыва. Показав его на кассе, вы сможете получить скидку. 
+                        </p>
                     </div>
                 </div>
               </div>
@@ -358,7 +359,7 @@
 </main>
 
       <footer class="mastfoot mt-auto">
-        <p>Спасибо. Ждем вас снова в Куртош&Кофе</p>
+        <p class="text-center">Спасибо, что были с нами. <br>Ждем вас снова в Куртош&Кофе</p>
       </footer>
     </div>
 

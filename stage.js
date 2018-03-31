@@ -66,6 +66,8 @@ var guestStamps = 0;
 var outGuestStamps = 0;
 var outGuestStatus = '';
 
+var smsStatus = '';
+
 
 // 0.1. 
 
@@ -166,10 +168,14 @@ if ( orderID == 0 ) {
 		outGuestID = guestID;
 		outGuestEntry = foundGuest;
 		
+		smsStatus = "СМС нет";
+		
 	} else if ( typeof guestEntry !== "undefined" && guestEntry !== null ) {
 
 		outGuestEntry = guestEntry;
 		outGuestID = Number(guestEntry.field("Телефон").replace(/[^0-9]/g,""));
+		
+		smsStatus = "СМС нет";
 
 	}
 	
@@ -241,13 +247,16 @@ if ( orderID == 0 ) {
 					outGuestEntry = guestEntry;
 				}
 				
+				smsStatus = "СМС нет";
 				// calculations are done in last step
+				
 			} 
 			
 			// if guest was deleted
 			if ( prevGuestID !== 0 && ( guestID == 0 || guestEntryID == 0 ) ) {
 				message ('guest was certainly deleted');
 				outGuestID = 0;	outGuestEntry = null;
+				smsStatus = "";
 			}
 			message (' check');
 		}
@@ -360,11 +369,31 @@ entry().set("priceStatus", priceStatus );
 - status string "rub. 20%"
 */
 
+
+
 entry().set("guestID", outGuestID);
 entry().set("Гость", outGuestEntry);
 
 entry().set( "guestStatus", outGuestStatus );
 
+
+/* sms-case things: 
+on create:
+	- guest is set - set smsStatus to "not send"
+on-update:
+	- guest is added/changed - set smsStatus to "not send"
+	- guest is deletes - set sms Status to ""
+
+*/
+entry().set("СМС отправлен?", smsStatus);
+		
+
+
+
+
+	
+	
+	
 
 //message('after guest stamp work');
 

@@ -1,105 +1,249 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="reviewfiles/favicon.jpg">
 
-    <title>Cover Template for Bootstrap</title>
+    <title>Куртош&Кофе Отзывы</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="reviewfiles/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
   <style type="text/css">/*
- * contextMenu.js v 1.4.0
- * Author: Sudhanshu Yadav
- * s-yadav.github.com
- * Copyright (c) 2013 Sudhanshu Yadav.
- * Dual licensed under the MIT and GPL licenses
-**/
+     * contextMenu.js v 1.4.0
+     * Author: Sudhanshu Yadav
+     * s-yadav.github.com
+     * Copyright (c) 2013 Sudhanshu Yadav.
+     * Dual licensed under the MIT and GPL licenses
+    **/
 
-.iw-contextMenu {
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10);
-    border: 1px solid #c8c7cc;
-    border-radius: 11px;
-    display: none;
-    z-index: 1000000132;
-    max-width: 300px;
-}
+    /*
+     * Globals
+     */
 
-.iw-cm-menu {
-    background: #fff;
-    color: #000;
-    margin: 0px;
-    padding: 0px;
-}
+    /* Links */
+    a,
+    a:focus,
+    a:hover {
+      color: #fff;
+    }
 
-.iw-curMenu {
-}
+    /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      color: #333;
+      text-shadow: none; /* Prevent inheritance from `body` */
+      background-color: #fff;
+      border: .05rem solid #fff;
+    }
 
-.iw-cm-menu li {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif;
-    list-style: none;
-    padding: 10px;
-    padding-right: 20px;
-    border-bottom: 1px solid #c8c7cc;
-    cursor: pointer;
-    position: relative;
-    font-size: 14px;
-    margin: 0;
-    line-height: inherit;
-}
 
-.iw-cm-menu li:first-child {
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-}
+    /*
+     * Base structure
+     */
 
-.iw-cm-menu li:last-child {
-    border-bottom-left-radius: 11px;
-    border-bottom-right-radius: 11px;
-    border-bottom: none;
-}
+    html,
+    body {
+      height: 100%;
+      background-color: #333;
+    }
 
-.iw-mOverlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    background: #FFF;
-    opacity: .5;
-}
+    body {
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -ms-flex-pack: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+      box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    }
 
-.iw-contextMenu li.iw-mDisable {
-    opacity: 0.3;
-    cursor: default;
-}
+    .cover-container {
+      max-width: 42em;
+    }
 
-.iw-mSelected {
-    background-color: #F6F6F6;
-}
 
-.iw-cm-arrow-right {
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 5px solid #000;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    margin-top: -5px;
-}
+    /*
+     * Header
+     */
+    .masthead {
+      margin-bottom: 2rem;
+    }
 
-.iw-mSelected > .iw-cm-arrow-right {
-}
+    .masthead-brand {
+      margin-bottom: 0;
+    }
 
-/*context menu css end */
+    .nav-masthead .nav-link {
+      padding: .25rem 0;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+      border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link + .nav-link {
+      margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    @media (min-width: 48em) {
+      .masthead-brand {
+        float: left;
+      }
+      .nav-masthead {
+        float: right;
+      }
+    }
+
+
+    /*
+     * Cover
+     */
+    .cover {
+      padding: 0 1.5rem;
+    }
+    .cover .btn-lg {
+      padding: .75rem 1.25rem;
+      font-weight: 700;
+    }
+
+
+    /*
+     * Footer
+     */
+    .mastfoot {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .iw-contextMenu {
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10);
+        border: 1px solid #c8c7cc;
+        border-radius: 11px;
+        display: none;
+        z-index: 1000000132;
+        max-width: 300px;
+    }
+
+    .iw-cm-menu {
+        background: #fff;
+        color: #000;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .iw-curMenu {
+    }
+
+    .iw-cm-menu li {
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif;
+        list-style: none;
+        padding: 10px;
+        padding-right: 20px;
+        border-bottom: 1px solid #c8c7cc;
+        cursor: pointer;
+        position: relative;
+        font-size: 14px;
+        margin: 0;
+        line-height: inherit;
+    }
+
+    .iw-cm-menu li:first-child {
+        border-top-left-radius: 11px;
+        border-top-right-radius: 11px;
+    }
+
+    .iw-cm-menu li:last-child {
+        border-bottom-left-radius: 11px;
+        border-bottom-right-radius: 11px;
+        border-bottom: none;
+    }
+
+    .iw-mOverlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background: #FFF;
+        opacity: .5;
+    }
+
+    .iw-contextMenu li.iw-mDisable {
+        opacity: 0.3;
+        cursor: default;
+    }
+
+    .iw-mSelected {
+        background-color: #F6F6F6;
+    }
+
+    .iw-cm-arrow-right {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #000;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        margin-top: -5px;
+    }
+
+    .iw-mSelected > .iw-cm-arrow-right {
+    }
+
+    /*context menu css end */
+
+
+
+    .card {
+        background-color: inherit;
+        border: none;
+    }
+    .card-header {
+        background-color: rgba(255,255,255,.93);
+        border-radius: .3rem !important;
+        border: none;
+        margin: 7px 14px;
+        color: black;
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+    }
+    .card-header h4 {
+        font-weight: lighter;
+        font-size: 1.19rem;
+        margin: 4px 0;
+    }
+    .card-header p {
+        color: darkgray;
+        font-style: italic;
+        text-shadow: none;
+        text-align: center;
+        margin: 0.3rem 0 0;
+    }
+
+    li.media:active {
+        background-color: dimgrey;
+    }
+
 </style>
 
 
@@ -116,19 +260,19 @@
       
 
       <main role="main" class="inner cover" >
-        <h1 class="cover-heading text-center" style="margin-bottom: 30px;">Оставьте отзыв
-        <br> <span style="font-size: 1.8rem;font-weight: normal;font-style: italic;">о Куртош & Кофе</span>
+        <h1 class="cover-heading text-center" style="margin-bottom: 30px;font-size: 2.0rem; line-height: 2.8rem;">
+            <i>Оставьте отзыв</i>
+            <br><span style="font-size: 1.8rem;font-weight: normal;">о Куртош & Кофе</span>
         </h1>
         <h3 class="text-center my-3" style="color: snow;"></h3>
-        <p class="text-center" style="color: lightgray;">
-            Получайте <span class="text-warning"><strong>скидки до 30% *</strong></span> за то, что помогаете нам становится лучше.
-        </p>
-         <p class="text-center" style="color: darkgray; font-style: italic;">
-            <span class="text-warning"><b>*</b></span> Для получения разовой скидки на покупку, покажи на кассе экран телефона с отправленным отзывом.
-        </p>
         <p class="text-center" style="color: lightgray; font-size: 1.1rem;">
             Собери все скидки!  
         </p>
+        <p class="text-center" style="color: lightgray;">
+            Получайте <span class="text-warning"><strong>скидки до 30% *</strong></span> за то, что помогаете нам становится лучше.
+        </p>
+
+
 
 
 
@@ -136,47 +280,16 @@
         <div class="my-5">
 
             <h3 class="text-center my-3" style="color: snow; font-weight: normal;" >
-                Предложения <i style="font-weight: lighter;  font-size: 1.6rem">/ замечания по работе</i>
+                Личным <i style="font-weight: lighter;  font-size: 1.6rem">сообщением</i>
             </h3>
 
             <p class="text-center" style="color: darkgray;">
-                <span class="text-warning">20% скидки * </span> за каждый отзыв <br>о качестве продукции, нововведениях, обслуживании, новых бариста, атмосфере.
+                Вы часто к нам приходите, что бросаются в глаза любые мелочи. Вам что-то не понравилось или у вас есть идеи, что можно улучшить. Пишите смело. 
             </p>
 
 
 
             <div id="accordion">
-
-                <style>
-                .card {
-                    background-color: inherit;
-                    border: none;
-                }
-                .card-header {
-                    background-color: rgba(255,255,255,.93);
-                    border-radius: .3rem !important;
-                    border: none;
-                    margin: 7px 14px;
-                    color: black;
-                    padding-top: 0.35rem;
-                    padding-bottom: 0.35rem;
-                }
-                .card-header h4 {
-                    font-weight: lighter;
-                    font-size: 1.19rem;
-                    margin: 4px 0;
-                }
-                .card-header p {
-                    color: darkgray;
-                    font-style: italic;
-                    text-shadow: none;
-                    text-align: center;
-                    margin: 0.3rem 0 0;
-                }
-
-
-                </style>
-
 
               <div class="card">
                 <div class="card-header" id="headingOne"
@@ -184,53 +297,56 @@
                     <h4 class="text-center "  >
                       Анонимно
                     </h4>
-                    <p>или без лишних авторизаций</p>
+                    <p>(без авторизации)</p>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                      <div class="card-body">
 
+                        <p class="text-center" style="color: darkgray;">
+                            Анонимный отзыв не предусмтатривает скидки. На то он и анонимный.  
+                        </p>
                         <form  action="https://formspree.io/v.shtefanets@gmail.com"  method="POST"  class="form-group">
                              
                                 <textarea rows="5"  name="Отзыв" required autofocus maxlength="500" placeholder="Ваш отзыв" 
                                 class="form-control  form-control-lg"
                                 style="width: 100%; display: block; margin: 10px auto;"></textarea>
 
-                                <input type="email" name="_cc" placeholder="Email по желанию для скидки" value="" 
+                                <!--<input type="email" name="_cc" value="" 
                                 class="form-control  "  
+                                placeholder="Email по желанию для скидки" 
                                 style="width: 100%; display: block; margin: 20px auto 10px;"
-                                />
+                                >-->
 
+                                <input type="hidden" name="_replyto" value="spervakofe@gmail.com" >
+                                <input type="hidden" name="_subject" value="Новый отзыв" >
+                                <input type="hidden" name="_format" value="plain" >
+                                <input type="hidden" name="_language" value="ru" >
+                                <input type="text" name="_gotcha" style="display:none" >
 
-                            <input type="hidden" name="_replyto" value="spervakofe@gmail.com" />
-                            <input type="hidden" name="_subject" value="New submission!" />
-                            <input type="hidden" name="_format" value="plain" />
-                            <input type="hidden" name="_language" value="ru" />
-                            <input type="text" name="_gotcha" style="display:none" />
-
-                            <input  type="submit" 
-                            value="Отправить >>>" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
+                                <input  type="submit" 
+                                value="Отправить >>>" class="btn btn-warning" style="width: 100%; margin: 10px auto;" >
                             
                         </form>
-                        <p class="text-center" style="color: darkgray;">
+                        <!--<p class="text-center" style="color: darkgray;">
                             За анонимный отзыв не получится начислить скидку. Но вы можете указать email, тогда анонимность не сохранится, но вам на почту придет копия вашего отзыва. Показав его на кассе, вы сможете получить скидку. 
-                        </p>
+                        </p>-->
                     </div>
                 </div>
               </div>
 
 
               <div class="card" >
-               <div class="card-header" id="headingTwo"
-               data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <div class="card-header" id="headingTwo"
+                data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                    <h4 class="text-center " >
-                     В личку 
+                     В социальных сетях
                    </h4>
-                   <p>в социальных сетях</p>
-               </div>
+                   <p>в личку</p>
+                </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                      <div class="card-body">
                         <p class="text-center" style="color: darkgray;">
-
+                            <span class="text-warning">20% скидки* </span> за каждое предложение или замечание.  
                         </p>
 
                         <div class="container">
@@ -248,8 +364,7 @@
                               <img class="align-self-center " src="https://lh3.googleusercontent.com/8OiHVtg9BUN9Ms3LjD7RBhWGimOBSUoo7hdPymXcl-nIXeqA3C6La7qK59squ-emgQ=w50-rw" data-holder-rendered="true" style="width: 55px;height: 55px;  margin: 0 auto; display: block;">
                                 </a>
                             </div></div>
-                            <div class="col-3"><div class="row">
-                            </div></div>
+                            <div class="col-3"><div class="row"></div></div>
                           </div>
                         </div>
                     </div>
@@ -257,9 +372,9 @@
               </div>
 
 
+            </div>
 
-
-
+        </div>    
 
 
 
@@ -268,11 +383,11 @@
 <h3 class="text-center my-3" style="color: snow; font-weight: normal;">Поделиться со всеми,
 <br><i style="font-weight: lighter;">опубликовав в сети</i></h3>
 <p class="text-center" style="color: darkgray;">
-<span class="text-warning">30% скидки</span> за отзыв с фото; <br><span class="text-warning">20% скидки</span> за текстовый отзыв без фото.
+<span class="text-warning" style="color: snow;">30% скидки</span> за отзыв с фото; <br><span class="text-info">20% скидки</span> за текстовый отзыв без фото.
 </p>
 </div>
 
-<div class="my-5"><ul class="list-unstyled"> 
+<div class="my-10"><ul class="list-unstyled"> 
 
 <li class="media my-5"   onclick='window.location = "https://yandex.ru/search/touch/?text=куртош%20кофе&lr=213"'>
   <div class="mr-3 rounded-circle align-self-center font-weight-bold" style="width: 40px; height: 40px;background-color: red; text-align: center; font-size: larger; padding-top: 4px; margin-right: 2rem !important;">1</div>
@@ -283,7 +398,7 @@
         <h5 class="mt-0">Яндекс.Карты</h5>
       </div>
     </div>
-    Пролистать до карточки Куртош&Кофе, открыв ее, найти раздел Отзывы
+    <p class="mb-0 " style="color: lightgray;">Пролистать до карточки Куртош&Кофе, открыв ее, найти раздел Отзывы</p>
   </div>
 </li>
 
@@ -296,7 +411,7 @@
                 <h5 class="mt-0 mb-1">Google.Карты</h5>
             </div>
         </div>
-        Раздел "Оценка и отзыв" на странице
+        <p class="mb-0 " style="color: lightgray;">Раздел "Оценка и отзыв" на странице</p>
     </div>
   </li>
 
@@ -309,7 +424,7 @@
                 <h5 class="mt-0 mb-1">TripAdvisor</h5>
             </div>
         </div>
-        Раздел "Отзывы" на странице > "Оставить отзыв"
+        <p class="mb-0 " style="color: lightgray;">Раздел "Отзывы" на странице > "Оставить отзыв"</p>
     </div>
   </li>
 
@@ -322,7 +437,7 @@
                 <h5 class="mt-0 mb-1">Instagram</h5>
             </div>
         </div>
-        Сделать пост с упоминанием @kurtoshcoffee 
+        <p class="mb-0 " style="color: lightgray;">Сделать пост с упоминанием <i>@kurtoshcoffee</i>  </p>
     </div>
   </li>
 
@@ -337,7 +452,7 @@
                 <h5 class="mt-0 mb-1" style="opacity: 0.75;">Карты 2GIS</h5>
             </div>
         </div>   
-        Раздел "Отзывы" > "Оставить отзыв на Флампе"
+        <p class="mb-0 " style="color: lightgray;">Раздел "Отзывы" > "Оставить отзыв на Флампе"</p>
     </div>
   </li>
 
@@ -359,8 +474,12 @@
 
 </main>
 
-      <footer class="mastfoot mt-auto">
-        <p class="text-center">Спасибо, что были с нами. <br>Ждем вас снова в Куртош&Кофе</p>
+      <footer class="mastfoot mt-5">
+        <p class="text-center mb-5" style="color: lightgray; font-style: italic;">
+            <span class="text-warning"><b>*</b></span> Для получения разовой скидки на покупку, покажите на кассе экран телефона с отправленным отзывом.<br>
+            На заказ не будут распространятся другие акции и суммироваться скидки. <br>
+        </p>
+        <p class="text-center mb-5">Спасибо, что были с Куртош&Кофе. <br>Ждем вас снова у себя в гостях.</p>
       </footer>
     </div>
 
@@ -368,19 +487,20 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
+    <script src="reviewfiles/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"><\/script>')</script>
-    <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
-    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script> 
+    <!-- <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>-->
+    <script src="reviewfiles/bootstrap.min.js"></script> 
 
 
-                  <script>
-                  /*jQuery( document ).ready(function() {  
-                    jQuery( "#submit" ).click(function() {
-                      jQuery( "#collapseExample" ).show();
-                    });
-                 }); */
-                </script>
+    <script>
+      /*jQuery( document ).ready(function() {  
+        jQuery( "#submit" ).click(function() {
+          jQuery( "#collapseExample" ).show();
+        });
+     }); */
+    </script>
 
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter48320231 = new Ya.Metrika({ id:48320231, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, ut:"noindex" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/48320231?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 </body>
 </html>

@@ -125,7 +125,7 @@ for ( var e=0; e < 250; e++ ) {
  
   revenue = order.field("К оплате");
   positions = order.field("Позиций");
-  gifts = order.field("Списать штампов");
+  gifts = order.field("Списать штампы");
   discount = order.field("Ручная скидка");
 
  

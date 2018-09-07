@@ -79,7 +79,7 @@ v
 */
 
 
-var orders = libByName("Дуброва 2018-1");
+var orders = libByName("Дуброва 2018-1").entries();
 //var guestStats = libByName("");
 //var dayStats = libByName("");
 

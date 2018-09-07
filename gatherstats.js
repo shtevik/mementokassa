@@ -92,16 +92,22 @@ var newEntry = function (i) {
   if ( isExist.length !== 0 ) {
    
    // message('y');
-   isExist[0].set( "Выручка", isExist[0].field("Выручка") + 1 );
+   isExist[0].set( "Выручка", isExist[0].field("Выручка") + revenue );
+   isExist[0].set( "Посещений", isExist[0].field("Посещений") + 1 );
+   isExist[0].set( "Позиций",  isExist[0].field("Позиций") + positions );
    
    
   } else {
    
-   // message('n');
+   message('n');
    var newEntry = new Object();
-   newEntry["Дата"] = Date.parse( day1 );
-   // timestamp
-   newEntry["Выручка"] = 1;
+   newEntry["Дата"] = Date.parse( day1 );  // timestamp
+   newEntry["Выручка"] = revenue;
+   newEntry["Посещений"] = 1;
+   newEntry["Позиций"] = positions;
+   //newEntry["Подарков "] = gifts;
+   //newEntry["Скидок"] = discount;
+
   
    
    lib().create( newEntry );
@@ -113,7 +119,20 @@ var newEntry = function (i) {
 
 
  
-for ( var e=340; e < 350; e++ ) {
+for ( var e=0; e < 250; e++ ) {
+ 
+  order = orders[e];
+ 
+  revenue = order.field("К оплате");
+  positions = order.field("Позиций");
+  gifts = order.field("Списать штампов");
+  discount = order.field("Ручная скидка");
+
+ 
+  time = order.field("Time");
+ 
+  guestID = order.field("guestID");
+  
   
   newEntry(e);
   

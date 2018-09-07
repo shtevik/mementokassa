@@ -99,7 +99,7 @@ var newEntry = function (i) {
    
    // message('n');
    var newEntry = new Object();
-   newEntry["Дата"} = Date.parse( day1 );
+   newEntry["Дата"] = Date.parse( day1 );
    // timestamp
    newEntry["Выручка"] = 1;
   

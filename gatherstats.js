@@ -63,61 +63,67 @@ plus time
 - Месяц
 - Кол-во посещений
 - Покупко на сумму
-- Средний чек
+- Средний \чек
 
 - Позиция1  ...  Позиция5
 - Кол-во1  ...   Кол-во5
 
 
 
+// 1. verify date string 
+// 1.5 find exsisted or create new entry
+// 2. gather data that calcs
+// 3. gather new / old / no guests
 
+v
 */
 
 
-var orders = libByName("");
-var guestStats = libByName("");
-var dayStats = libByName("");
+var orders = libByName("Дуброва 2018-1");
+//var guestStats = libByName("");
+//var dayStats = libByName("");
 
 
-
-
-
-foreach ( var i=0; orders.length > i; i++ ) {
-
-
-var statOfDay, date, revenue, avBill, visits, gifts, discount;
-
-
-
-date = orders[i].field("Дата");
-revenue = orders[i].field("К оплате");
-[..]
-
-
-
-
-statOfDay = dayStats.find(date)[0];
-
- if ( statOfDay ) { //   if is not created day entry
-
-    statOfDay.set( "Выручка", statOfDay.field("К оплате") + revenue );
-
-  
-  } else {  // is created yet
+var newEntry = function (i) {
+ 
+  day1 = orders[i].field("Date");    // Fri Jun 25 2018 10:27:00 GMT+0300 (GMT+03:00)
+  var isExist = lib().find( day1.toLocaleDateString() );    // 25 июня 2018 г. 10:27:00 GMT+03:00
+ 
+  if ( isExist.length !== 0 ) {
    
-  
-    var newDay = new Object();    
-    newDay["Дата"] = date;
-    dayStats.create(newDay);
+   // message('y');
+   isExist[0].set( "Выручка", isExist[0].field("Выручка") + 1 );
    
-     
+   
+  } else {
+   
+   // message('n');
+   var newEntry = new Object();
+   newEntry["Дата"} = Date.parse( day1 );
+   // timestamp
+   newEntry["Выручка"] = 1;
+  
+   
+   lib().create( newEntry );
+   
+   
   }
-   
-
-   
-   
-
-
-
-
+ 
 }
+
+
+ 
+for ( var e=340; e < 350; e++ ) {
+  
+  newEntry(e);
+  
+}
+ 
+ 
+ 
+ 
+ 
+
+
+
+

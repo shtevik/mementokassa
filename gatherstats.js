@@ -92,9 +92,9 @@ var newEntry = function (i) {
   if ( isExist.length !== 0 ) {
    
    // message('y');
-   isExist[0].set( "Выручка", isExist[0].field("Выручка") + revenue );
-   isExist[0].set( "Посещений", isExist[0].field("Посещений") + 1 );
-   isExist[0].set( "Позиций",  isExist[0].field("Позиций") + positions );
+   isExist[0].set( "Выручка", Number(isExist[0].field("Выручка")) + revenue );
+   isExist[0].set( "Посещений", Number(isExist[0].field("Посещений")) + 1 );
+   isExist[0].set( "Позиций",  Number(isExist[0].field("Позиций")) + positions );
    
    
   } else {
@@ -102,9 +102,9 @@ var newEntry = function (i) {
    message('n');
    var newEntry = new Object();
    newEntry["Дата"] = Date.parse( day1 );  // timestamp
-   newEntry["Выручка"] = revenue;
+   newEntry["Выручка"] = Number(revenue);
    newEntry["Посещений"] = 1;
-   newEntry["Позиций"] = positions;
+   newEntry["Позиций"] = Number(positions);
    //newEntry["Подарков "] = gifts;
    //newEntry["Скидок"] = discount;
 
@@ -119,14 +119,14 @@ var newEntry = function (i) {
 
 
  
-for ( var e=0; e < 250; e++ ) {
+for ( var e=280; e < 320; e++ ) {
  
   order = orders[e];
  
-  revenue = order.field("К оплате");
-  positions = order.field("Позиций");
-  gifts = order.field("Списать штампы");
-  discount = order.field("Ручная скидка");
+  revenue = Number(order.field("К оплате"));
+  positions = Number(order.field("Позиций"));
+  gifts = Number(order.field("Списать штампы"));
+  discount = Number(order.field("Ручная скидка"));
 
  
   time = order.field("Time");

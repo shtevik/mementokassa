@@ -125,10 +125,10 @@ for ( var e=280; e < 380; e++ ) {
  
   order = orders[e];
  
-  revenue = Number(order.field("К оплате"));
-  positions = Number(order.field("Позиций"));
-  gifts = Number(order.field("Списать штампы"))*85;
-  discount = Math.ceil( revenue / ( 1 - Number(order.field("Ручная скидка")) ) / 10 )  * 10;
+  var revenue = Number(order.field("К оплате"));
+  var positions = Number(order.field("Позиций"));
+  var gifts = Number(order.field("Списать штампы"))*85;
+  var discount = Math.ceil( revenue / ( Number(order.field("Ручная скидка")) ) / 10 )  * 10;
 
  
   time = order.field("Time");

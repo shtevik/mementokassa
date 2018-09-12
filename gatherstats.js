@@ -146,7 +146,7 @@ for ( var e=startE; e < endE; e++ ) {
    
    guestTime = guest.creationTime;
    
-   if ( ( Date.parse(guestTime) < ( Date.parse(orderTime) + 2*60*1000 ) ) && ( Date.parse(guestTime) > ( Date.parse(orderTime) - 2*60*1000 ) )  ) {
+   if ( ( Date.parse(guestTime) < ( Date.parse(orderDate) + 2*60*1000 ) ) && ( Date.parse(guestTime) > ( Date.parse(orderDate) - 2*60*1000 ) )  ) {
       message("new guest");
    } else {
       message("old guest");

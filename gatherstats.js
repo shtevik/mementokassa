@@ -109,8 +109,7 @@ var newEntry = function (i) {
    newEntry["Позиций"] = positions;
    newEntry["Подарков"] = gifts;
    newEntry["Скидок"] = discount;
-
-  
+ 
    
    lib().create( newEntry );
    
@@ -121,7 +120,7 @@ var newEntry = function (i) {
 
 
  
-for ( var e=280; e < 380; e++ ) {
+for ( var e=startE; e < endE; e++ ) {
  
   order = orders[e];
  
@@ -131,12 +130,29 @@ for ( var e=280; e < 380; e++ ) {
   var discount = Math.ceil( revenue / ( 1 - Number( order.field( "Ручная скидка" ) / 100 ) ) / 10 ) * 10 - revenue;
 
  
-  time = order.field("Time");
+  orderTime = order.field("Time");
+  orderDate = order.creationTime;
+  orderHours = orderDate.getHours();
+ 
+  
  
   guestID = order.field("guestID");
+  guest = order.field("Гость")[0];
+ 
+  if ( typeof guest !== 'undefined' ) {
+   
+   guestTime = guest.creationTime;
+   
+   if ( Date.parse(guestTime) < ( Date.parse(orderTime) + 2*60*1000 ) &&  Date.parse(guestTime) > ( Date.parse(orderTime) - 2*60*1000 ) {
+      message("new guest");
+   } eles {
+      message("old guest");
+   }  
+  } else { 
+    message("no guest");
+  } 
   
-  
-  newEntry(e);
+  //newEntry(e);
   
 }
  

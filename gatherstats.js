@@ -143,7 +143,7 @@ for ( var e=startE; e < endE; e++ ) {
    
    guestTime = guest.creationTime;
    
-   if ( Date.parse(guestTime) < ( Date.parse(orderTime) + 2*60*1000 ) &&  Date.parse(guestTime) > ( Date.parse(orderTime) - 2*60*1000 ) ) {
+   if ( ( Date.parse(guestTime) < ( Date.parse(orderTime) + 2*60*1000 ) ) && ( Date.parse(guestTime) > ( Date.parse(orderTime) - 2*60*1000 ) )  ) {
       message("new guest");
    } eles {
       message("old guest");
@@ -152,8 +152,16 @@ for ( var e=startE; e < endE; e++ ) {
     message("no guest");
   } 
   
-  //newEntry(e);
-  
+  // Time
+  var eightTen, tenTwelve, twelveFourteen, fourteenSixteen, sixteenEighteen, eighteenTwenty, twentyTwentytwo = 0;
+  //if ( orderTime > 8 && orderTime < 8 )
+   // eig
+ 
+ 
+ 
+ 
+ 
+  //newEntry(e);  
 }
  
  

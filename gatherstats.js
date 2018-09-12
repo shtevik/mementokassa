@@ -141,7 +141,7 @@ for ( var e=startE; e < endE; e++ ) {
  
   guestID = order.field("guestID");
   guest = order.field("Гость")[0];
-  message(guest);
+  message(orderDate);
   if ( typeof guest !== 'undefined' ) {
    
    guestTime = guest.creationTime;

@@ -138,7 +138,7 @@ for ( var e=startE; e < endE; e++ ) {
   orderHours = orderDate.getHours();
  
   
- 
+  var 
   guestID = order.field("guestID");
   guest = order.field("Гость")[0];
   message(orderDate);
